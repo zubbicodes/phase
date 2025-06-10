@@ -53,9 +53,11 @@ const TargetSupplierSection = () => {
               }}
               className="absolute -top-6 -right-6 z-20"
             >
-              <div className="bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg">
-                <span className="font-semibold">Certified Supplier</span>
-              </div>
+              <img
+                src="/certified.png"
+                alt="Certified Badge"
+                className="w-16 h-16 object-contain drop-shadow-lg"
+              />
             </motion.div>
           </motion.div>
         </div>

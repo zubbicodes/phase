@@ -50,4 +50,8 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-gray-600;
+}
+
+.cursor-right-up {
+  cursor: url('/right-up.png') 8 8, pointer;
 } 

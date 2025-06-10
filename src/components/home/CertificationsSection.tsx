@@ -1,17 +1,38 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { CircularTestimonials } from '@/components/ui/circular-testimonials';
 
-const certifications = [
+const certificates = [
   {
+    quote: 'Certified for safe and sustainable textile production',
     name: 'OEKO-TEX STANDARD 100',
-    description: 'Certified for safe and sustainable textile production',
-    image: '/OEKO_TEX.jpg',
+    designation: 'Certification',
+    src: '/certificates/3.png',
   },
   {
+    quote: 'Recognized for excellence in trim manufacturing',
     name: 'Trim Supplier Qualification',
-    description: 'Recognized for excellence in trim manufacturing',
-    image: '/intertek.png',
+    designation: 'intertek Certification',
+    src: '/certificates/4.png',
+  },{
+    quote: 'Certified for ethical and responsible business practices',
+    name: 'SEDEX',
+    designation: 'Certification',
+    src: '/certificates/1.png', // <-- update with your actual image path
   },
+  {
+    quote: 'Certified for meeting the Global Recycle Standard',
+    name: 'GLOBAL RECYCLE STANDARD',
+    designation: 'Certification',
+    src: '/certificates/5.png', // <-- update with your actual image path
+  },
+  {
+    quote: 'Certified for sustainability with the Higg Index',
+    name: 'Higgs Index',
+    designation: 'Certification',
+    src: '/certificates/2.png', // <-- update with your actual image path
+  },
+  // Add more certificates as needed
 ];
 
 const CertificationsSection = () => {
@@ -33,35 +54,26 @@ const CertificationsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {certifications.map((cert, index) => (
-            <motion.div
-              key={cert.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              viewport={{ once: true }}
-              className="bg-gray-900 rounded-2xl p-8 hover:bg-gray-800 transition-colors duration-300"
-            >
-              <div className="flex flex-col items-center text-center space-y-6">
-                <div className="w-32 h-32 relative">
-                  <img
-                    src={cert.image}
-                    alt={cert.name}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-2">
-                    {cert.name}
-                  </h3>
-                  <p className="text-gray-400">
-                    {cert.description}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+        <div className="flex justify-center">
+          <div className="w-full max-w-4xl">
+            <CircularTestimonials
+              testimonials={certificates}
+              autoplay={false}
+              colors={{
+                name: "#fff",
+                designation: "#e1e1e1",
+                testimony: "#f1f1f7",
+                arrowBackground: "#0582CA",
+                arrowForeground: "#141414",
+                arrowHoverBackground: "#f7f7ff",
+              }}
+              fontSizes={{
+                name: "28px",
+                designation: "20px",
+                quote: "20px",
+              }}
+            />
+          </div>
         </div>
 
         {/* Quality Commitment */}

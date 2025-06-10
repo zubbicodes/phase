@@ -41,13 +41,13 @@ const TrustedClientsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors duration-300"
+              className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors duration-300 cursor-right-up"
             >
               <div className="aspect-w-16 aspect-h-9">
                 <img
                   src={client.logo}
                   alt={client.name}
-                  className="w-full h-full object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300"
+                  className="w-full h-full object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity duration-300 cursor-right-up"
                 />
               </div>
             </motion.div>
