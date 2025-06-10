@@ -2,7 +2,6 @@ import React from 'react';
 import HeroSection from '../components/home/HeroSection';
 import TargetSupplierSection from '../components/home/TargetSupplierSection';
 import CertificationsSection from '../components/home/CertificationsSection';
-import TrustedClientsSection from '../components/home/TrustedClientsSection';
 import SustainabilitySection from '../components/home/SustainabilitySection';
 
 const Home = () => {
@@ -11,7 +10,6 @@ const Home = () => {
       <HeroSection />
       <TargetSupplierSection />
       <CertificationsSection />
-      <TrustedClientsSection />
       <SustainabilitySection />
     </div>
   );

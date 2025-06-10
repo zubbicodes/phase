@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CircularTestimonials } from '@/components/ui/circular-testimonials';
+import { CircularTestimonials } from '../../components/ui/circular-testimonials';
 
 const certificates = [
   {

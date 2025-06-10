@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { SparklesText } from '@/components/ui/sparkles-text';
+import { SparklesText } from '../../components/ui/sparkles-text';
 
 const HeroSection = () => {
   return (
