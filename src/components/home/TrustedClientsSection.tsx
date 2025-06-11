@@ -1,57 +1,9 @@
 import { Sparkles } from '../../components/ui/sparkles';
 
-const Adidas = () => (
-  <div className="text-center text-xl font-bold whitespace-nowrap">
-    Adidas
-  </div>
-)
-
-const Artistic = () => (
-  <div className="text-center text-xl font-bold whitespace-nowrap">
-    Artistic
-  </div>
-)
-
-const BSM = () => (
-  <div className="text-center text-xl font-bold whitespace-nowrap">
-    BSM
-  </div>
-)
-
-const Interloop = () => (
-  <div className="text-center text-xl font-bold whitespace-nowrap">
-    Interloop
-  </div>
-)
-
-const JCPenney = () => (
-  <div className="text-center text-xl font-bold whitespace-nowrap">
-    JCPenney
-  </div>
-)
-
-const Primark = () => (
-  <div className="text-center text-xl font-bold whitespace-nowrap">
-    Primark
-  </div>
-)
-
-const Target = () => (
-  <div className="text-center text-xl font-bold whitespace-nowrap">
-    Target
-  </div>
-)
-
-const Walmart = () => (
-  <div className="text-center text-xl font-bold whitespace-nowrap">
-    Walmart
-  </div>
-)
-
 const TrustedClientsSection = () => {
   return (
     <section className="relative py-20 bg-gray-900 overflow-hidden">
-      <div className="mx-auto mt-32 w-full px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto mt-32 w-full px-16">
         <div className="text-center text-3xl text-foreground">
           <span className="text-indigo-900 dark:text-indigo-200">
             Trusted by experts.
@@ -60,15 +12,15 @@ const TrustedClientsSection = () => {
           <span>Used by the leaders.</span>
         </div>
 
-        <div className="mt-14 flex justify-center gap-x-8 items-center text-zinc-900 dark:text-white">
-          <Adidas />
-          <Artistic />
-          <BSM />
-          <Interloop />
-          <JCPenney />
-          <Primark />
-          <Target />
-          <Walmart />
+        <div className="mt-14 text-center text-3xl py-20 font-extrabold text-zinc-900 dark:text-white flex justify-between items-center w-full">
+          <span className="mx-6">Adidas</span>
+          <span className="mx-6">Artistic Milliners </span>
+          <span className="mx-6">Bismillah Textile</span>
+          <span className="mx-6">Interloop Limited</span>
+          <span className="mx-6">JCPenney</span>
+          <span className="mx-6">Primark</span>
+          <span className="mx-6">Target</span>
+          <span className="mx-6">Walmart</span>
         </div>
       </div>
 
