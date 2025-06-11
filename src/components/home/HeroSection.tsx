@@ -1,11 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SparklesText } from '../../components/ui/sparkles-text';
+import { Component as SilkBackground } from '../../components/ui/silk-background-animation';
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-black py-16">
-      <div className="w-full max-w-7xl mx-auto text-center px-2 sm:px-4">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0">
+        <SilkBackground />
+      </div>
+      <div className="relative z-10 w-full max-w-7xl mx-auto text-center px-2 sm:px-4 py-16">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
