@@ -1,45 +1,58 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { SparklesText } from '../../components/ui/sparkles-text';
-import { Component as SilkBackground } from '../../components/ui/silk-background-animation';
+import ParallaxCarousel from '../../components/ui/ParallaxCarousel';
+
+const slides = [
+  {
+    id: 1,
+    image: '/hero/ads_1.jpg', // Using ads_1.jpg
+    title: 'WATER REPELLENT JACQUARD FABRIC',
+    description: 'Durable water repellent treatments for delicate jacquard woven fabric to prevent the fabric from becoming saturated with water.',
+    cardImage: '/hero/ads_2.png', // Example: Use the same image for card
+    cardTitle: 'Fabric Applications',
+    cardDescription: 'Elevated wash durability, long-lasting performance for various fabric uses.',
+  },
+  {
+    id: 2,
+    image: '/hero/ads_3.jpg', // Using ads_3.jpg
+    title: 'ADVANCED MOISTURE WICKING',
+    description: 'Engineered fabrics that draw moisture away from the skin, keeping you dry and comfortable during intense activities.',
+    cardImage: '/hero/ads_3.jpg', // Example: Another image for card
+    cardTitle: 'Moisture Wicking Uses',
+    cardDescription: 'Ideal for athletic wear and garments requiring high breathability.',
+  },
+  {
+    id: 3,
+    image: '/hero/ads_fabric.png', // Using ads_fabric.png
+    title: 'HIGH-PERFORMANCE FABRICS',
+    description: 'Innovative fabrics designed for durability, comfort, and exceptional performance in all conditions.',
+    cardImage: '/hero/ads_fabric.png', // Example: Use the same image for card
+    cardTitle: 'Fabric Applications',
+    cardDescription: 'Elevated wash durability, long-lasting performance for various fabric uses.',
+  },
+  {
+    id: 4,
+    image: '/hero/ads_tape.png', // Using ads_tape.png
+    title: 'VERSATILE TAPES & TRIMS',
+    description: 'A wide range of tapes and trims for various applications, offering strength, flexibility, and aesthetic appeal.',
+    cardImage: '/hero/ads_tape.png', // Example: Use the same image for card
+    cardTitle: 'Tape Applications',
+    cardDescription: 'Strength, flexibility, and aesthetic appeal for various applications.',
+  },
+  {
+    id: 5,
+    image: '/hero/ads_elastic.png', // Using ads_elastic.png
+    title: 'PREMIUM QUALITY ELSASTIC',
+    description: 'Elastic materials providing superior stretch and recovery, ideal for demanding applications requiring flexibility.',
+    cardImage: '/hero/ads_elastic.png', // Example: Use the same image for card
+    cardTitle: 'Elastic Applications',
+    cardDescription: 'Superior stretch and recovery, ideal for demanding applications requiring flexibility.',
+  },
+];
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0">
-        <SilkBackground />
-      </div>
-      <div className="relative z-10 w-full max-w-7xl mx-auto text-center px-2 sm:px-4 py-16">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight mb-6 font-sans whitespace-nowrap"
-          style={{ letterSpacing: '-0.03em' }}
-        >
-          Pre-Shrink <span className="inline-block"><SparklesText text="Elastic" className="inline text-white text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold" /></span> Experts
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg sm:text-2xl text-gray-400 mb-10 font-medium font-sans"
-        >
-          Premium quality elastics, cords, and tapes for the most demanding applications
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          <a
-            href="/products"
-            className="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 hover:bg-blue-700 hover:scale-105 shadow-lg font-sans cursor-right-up"
-          >
-            Explore Our Products
-          </a>
-        </motion.div>
-      </div>
+    <section className="relative w-full h-screen">
+      <ParallaxCarousel slides={slides} />
     </section>
   );
 };
