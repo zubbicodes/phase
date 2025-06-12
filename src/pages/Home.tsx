@@ -4,6 +4,7 @@ import TargetSupplierSection from '../components/home/TargetSupplierSection';
 import CertificationsSection from '../components/home/CertificationsSection';
 import SustainabilitySection from '../components/home/SustainabilitySection';
 import TrustedClientsSection from '../components/home/TrustedClientsSection';
+import EventSection from '../components/home/EventSection';
 
 const Home = () => {
   return (
@@ -12,7 +13,9 @@ const Home = () => {
       <TargetSupplierSection />
       <TrustedClientsSection />
       <CertificationsSection />
+      <EventSection />
       <SustainabilitySection />
+      
     </div>
   );
 };
