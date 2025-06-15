@@ -27,11 +27,18 @@ const certificates = [
     src: '/certificates/5.png', // <-- update with your actual image path
   },
   {
+    quote: 'Certified for sustainability with the OKEO-TEX',
+    name: 'OKKO-TEX®',
+    designation: 'Certification',
+    src: '/certificates/madeingreen.png', // <-- update with your actual image path
+  },
+  {
     quote: 'Certified for sustainability with the Higg Index',
     name: 'Higgs Index',
     designation: 'Certification',
     src: '/certificates/2.png', // <-- update with your actual image path
   },
+  
   // Add more certificates as needed
 ];
 
