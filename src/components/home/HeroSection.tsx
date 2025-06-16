@@ -50,6 +50,52 @@ const slides = [
     cardTitle: 'Elastic Applications',
     cardDescription: 'Superior stretch and recovery, ideal for demanding applications requiring flexibility.',
   },
+  {
+    id: 6,
+    image: '/hero/fabric_1.png', // Using ads_elastic.png
+    title: 'PREMIUM QUALITY ELSASTIC',
+    description: 'Elastic materials providing superior stretch and recovery, ideal for demanding applications requiring flexibility.',
+    cardImage: '/hero/ads_elastic.png', // Example: Use the same image for card
+    cardTitle: 'Elastic Applications',
+    cardDescription: 'Superior stretch and recovery, ideal for demanding applications requiring flexibility.',
+  },
+  {
+    id: 7,
+    image: '/hero/fabric_2.jpg', // Using ads_elastic.png
+    title: 'PREMIUM QUALITY ELSASTIC',
+    description: 'Elastic materials providing superior stretch and recovery, ideal for demanding applications requiring flexibility.',
+    cardImage: '/hero/ads_elastic.png', // Example: Use the same image for card
+    cardTitle: 'Elastic Applications',
+    cardDescription: 'Superior stretch and recovery, ideal for demanding applications requiring flexibility.',
+  },  
+  {
+    id: 8,
+    image: '/hero/fabric_3.png', // Using ads_elastic.png
+    title: 'PREMIUM QUALITY ELSASTIC',
+    description: 'Elastic materials providing superior stretch and recovery, ideal for demanding applications requiring flexibility.',
+    cardImage: '/hero/ads_elastic.png', // Example: Use the same image for card
+    cardTitle: 'Elastic Applications',
+    cardDescription: 'Superior stretch and recovery, ideal for demanding applications requiring flexibility.',
+  },  
+  {
+    id: 9,
+    image: '/hero/fabric_4.jpg', // Using ads_elastic.png
+    title: 'PREMIUM QUALITY ELSASTIC',
+    description: 'Elastic materials providing superior stretch and recovery, ideal for demanding applications requiring flexibility.',
+    cardImage: '/hero/ads_elastic.png', // Example: Use the same image for card
+    cardTitle: 'Elastic Applications',
+    cardDescription: 'Superior stretch and recovery, ideal for demanding applications requiring flexibility.',
+  },  
+  {
+    id: 10,
+    image: '/hero/fabric_5.jpg', // Using ads_elastic.png
+    title: 'PREMIUM QUALITY ELSASTIC',
+    description: 'Elastic materials providing superior stretch and recovery, ideal for demanding applications requiring flexibility.',
+    cardImage: '/hero/ads_elastic.png', // Example: Use the same image for card
+    cardTitle: 'Elastic Applications',
+    cardDescription: 'Superior stretch and recovery, ideal for demanding applications requiring flexibility.',
+  },  
+
 ];
 
 const HeroSection = () => {
