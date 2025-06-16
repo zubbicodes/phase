@@ -13,7 +13,7 @@ const mainMenu = [
 
 const productLinks = [
   { name: 'Elastics', href: '/products/elastics', isNew: true },
-  { name: 'Cords', href: '/products/cords', },
+  { name: 'Cords', href: '/products/cords', isNew: true },
   { name: 'Tapes', href: '/products/tapes', isNew: true },
   { name: 'Buttons', href: '/products/buttons', isNew: true },
 ];

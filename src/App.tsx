@@ -8,6 +8,7 @@ import Events from './pages/Events';
 import About from './pages/About';
 import Workflow from './pages/Workflow';
 import ElasticProducts from './pages/ElasticProducts';
+import Tapes from './pages/Tapes';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
             <Route path="/products/elastics" element={<ElasticProducts />} />
+            <Route path="/products/tapes" element={<Tapes />} />
             <Route path="/certifications" element={<Certifications />} />
             <Route path="/events" element={<Events />} />
             <Route path="/about" element={<About />} />
