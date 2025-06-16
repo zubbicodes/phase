@@ -1,0 +1,246 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { 
+  Package, 
+  Truck, 
+  Factory, 
+  Box, 
+  CheckCircle2, 
+  ClipboardCheck,
+  ArrowRight
+} from 'lucide-react';
+
+const Workflow = () => {
+  const workflowSteps = [
+    {
+      title: "Raw Material Selection",
+      description: "Carefully selecting high-quality raw materials that meet our strict standards",
+      icon: Package,
+      image: "/workflow/raw-materials.jpg",
+      details: [
+        "Quality inspection of incoming materials",
+        "Material testing and verification",
+        "Storage in controlled environment",
+        "Documentation and tracking"
+      ]
+    },
+    {
+      title: "Production Process",
+      description: "State-of-the-art manufacturing with precision and care",
+      icon: Factory,
+      image: "/workflow/production.jpg",
+      details: [
+        "Automated production lines",
+        "Quality control checkpoints",
+        "Real-time monitoring",
+        "Efficiency optimization"
+      ]
+    },
+    {
+      title: "Quality Assurance",
+      description: "Rigorous testing and quality control at every stage",
+      icon: CheckCircle2,
+      image: "/workflow/quality.jpg",
+      details: [
+        "Comprehensive testing procedures",
+        "Quality standards verification",
+        "Performance testing",
+        "Durability assessment"
+      ]
+    },
+    {
+      title: "Packaging",
+      description: "Secure and sustainable packaging solutions",
+      icon: Box,
+      image: "/workflow/packaging.jpg",
+      details: [
+        "Eco-friendly packaging materials",
+        "Custom packaging solutions",
+        "Product protection",
+        "Labeling and documentation"
+      ]
+    },
+    {
+      title: "Final Inspection",
+      description: "Thorough final check before shipping",
+      icon: ClipboardCheck,
+      image: "/workflow/inspection.jpg",
+      details: [
+        "Final quality verification",
+        "Documentation review",
+        "Order accuracy check",
+        "Packaging integrity"
+      ]
+    },
+    {
+      title: "Shipping & Delivery",
+      description: "Efficient logistics and reliable delivery",
+      icon: Truck,
+      image: "/workflow/shipping.jpg",
+      details: [
+        "Global shipping network",
+        "Real-time tracking",
+        "Secure transportation",
+        "On-time delivery guarantee"
+      ]
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-black text-white">
+      {/* Hero Section */}
+      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/workflow/hero-bg.jpg')",
+            filter: "brightness(0.3)"
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black opacity-80"></div>
+        <div className="relative z-10 text-center px-4">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-5xl md:text-6xl font-bold mb-6"
+          >
+            Our Workflow
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-xl text-gray-300 max-w-2xl mx-auto"
+          >
+            From raw materials to final delivery - our commitment to excellence at every step
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Workflow Timeline */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="space-y-20">
+            {workflowSteps.map((step, index) => (
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="relative"
+              >
+                {/* Timeline Line */}
+                {index < workflowSteps.length - 1 && (
+                  <div className="absolute left-8 top-24 bottom-0 w-0.5 bg-gray-800"></div>
+                )}
+
+                <div className="grid md:grid-cols-2 gap-12 items-center">
+                  {/* Left Side - Icon and Title */}
+                  <div className="flex items-center space-x-6">
+                    <div className="relative">
+                      <div className="w-16 h-16 bg-blue-600/20 rounded-full flex items-center justify-center">
+                        <step.icon className="w-8 h-8 text-blue-500" />
+                      </div>
+                      <div className="absolute -right-3 -top-3 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-sm font-bold">
+                        {index + 1}
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold mb-2">{step.title}</h3>
+                      <p className="text-gray-400">{step.description}</p>
+                    </div>
+                  </div>
+
+                  {/* Right Side - Image and Details */}
+                  <div className="space-y-6">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.8, delay: 0.2 }}
+                      viewport={{ once: true }}
+                      className="relative h-64 rounded-2xl overflow-hidden"
+                    >
+                      <img
+                        src={step.image}
+                        alt={step.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    </motion.div>
+                    <motion.div
+                      initial={{ opacity: 0, x: 50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.8, delay: 0.2 }}
+                      viewport={{ once: true }}
+                      className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8"
+                    >
+                      <ul className="space-y-4">
+                        {step.details.map((detail, i) => (
+                          <li key={i} className="flex items-start space-x-3">
+                            <ArrowRight className="w-5 h-5 text-blue-500 mt-1 flex-shrink-0" />
+                            <span className="text-gray-300">{detail}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Quality Commitment Section */}
+      <section className="py-20 bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Our Quality Commitment
+            </h2>
+            <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+              Every step in our workflow is designed to ensure the highest quality standards. 
+              From the selection of raw materials to the final delivery, we maintain rigorous 
+              quality control processes to guarantee excellence in every product.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Statistics Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { number: "99.9%", label: "Quality Assurance Rate" },
+              { number: "24/7", label: "Production Monitoring" },
+              { number: "48h", label: "Average Delivery Time" }
+            ].map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 text-center"
+              >
+                <div className="text-4xl font-bold text-blue-500 mb-2">{stat.number}</div>
+                <div className="text-gray-300">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Workflow; 

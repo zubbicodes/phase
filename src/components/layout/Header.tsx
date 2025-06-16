@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Menu, X, Globe, ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
+  const closeTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const navigation = [
     { name: 'Products', href: '/products' },
+    { name: 'Workflow', href: '/workflow' },
     { name: 'Certifications', href: '/certifications' },
     { name: 'Events', href: '/events' },
     { name: 'About', href: '/about' },
@@ -19,13 +22,31 @@ const Header = () => {
     { name: 'Buttons', href: '/products/buttons' },
   ];
 
+  // Dropdown handlers with delay
+  const handleProductsMouseEnter = () => {
+    if (closeTimeout.current) clearTimeout(closeTimeout.current);
+    setProductsDropdownOpen(true);
+  };
+  const handleProductsMouseLeave = () => {
+    closeTimeout.current = setTimeout(() => {
+      setProductsDropdownOpen(false);
+    }, 200); // 200ms delay
+  };
+  const handleDropdownMouseEnter = () => {
+    if (closeTimeout.current) clearTimeout(closeTimeout.current);
+    setProductsDropdownOpen(true);
+  };
+  const handleDropdownMouseLeave = () => {
+    setProductsDropdownOpen(false);
+  };
+
   return (
     <nav className="bg-black/95 sticky top-0 z-50 border-b border-transparent mt-4">
       <div className="w-full px-4 sm:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center space-x-8">
-            <div className="flex-shrink-0 flex items-center space-x-2">
+            <Link to="/" className="flex-shrink-0 flex items-center space-x-2">
               <img
                 src="/ad_logo.png"
                 alt="ADSONS Logo"
@@ -33,7 +54,7 @@ const Header = () => {
                 style={{ maxWidth: '32px' }}
               />
               <span className="text-white font-bold text-2xl tracking-tight font-sans select-none">adsons</span>
-            </div>
+            </Link>
             {/* Nav links */}
             <div className="hidden md:flex items-center space-x-6">
               {navigation.map((item) =>
@@ -41,8 +62,8 @@ const Header = () => {
                   <div
                     key={item.name}
                     className="relative"
-                    onMouseEnter={() => setProductsDropdownOpen(true)}
-                    onMouseLeave={() => setProductsDropdownOpen(false)}
+                    onMouseEnter={handleProductsMouseEnter}
+                    onMouseLeave={handleProductsMouseLeave}
                   >
                     <button
                       className="flex items-center text-gray-200 font-medium text-base px-2 py-2 rounded transition-colors duration-200 hover:text-white hover:bg-gray-800 focus:outline-none focus:text-white cursor-right-up"
@@ -52,27 +73,31 @@ const Header = () => {
                     </button>
                     {/* Dropdown */}
                     {productsDropdownOpen && (
-                      <div className="absolute left-0 mt-2 w-40 bg-gray-900 rounded-xl shadow-lg py-2 z-50 animate-fade-in">
+                      <div
+                        className="absolute left-0 mt-2 w-40 bg-gray-900 rounded-xl shadow-lg py-2 z-50 animate-fade-in"
+                        onMouseEnter={handleDropdownMouseEnter}
+                        onMouseLeave={handleDropdownMouseLeave}
+                      >
                         {productsList.map((prod) => (
-                          <a
+                          <Link
                             key={prod.name}
-                            href={prod.href}
+                            to={prod.href}
                             className="block px-3 py-2 text-gray-200 hover:bg-gray-800 hover:text-white rounded transition-colors duration-150 text-base cursor-right-up"
                           >
                             {prod.name}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     )}
                   </div>
                 ) : (
-                  <a
+                  <Link
                     key={item.name}
-                    href={item.href}
+                    to={item.href}
                     className="text-gray-200 font-medium text-base px-2 py-2 rounded transition-colors duration-200 hover:text-white hover:bg-gray-800 focus:outline-none focus:text-white cursor-right-up"
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 )
               )}
             </div>
@@ -80,12 +105,12 @@ const Header = () => {
 
           {/* Right side: Get Quote button & Language */}
           <div className="flex items-center space-x-4">
-            <a
-              href="/get-quote"
+            <Link
+              to="/contact"
               className="hidden md:inline-block bg-gray-800 text-white font-semibold px-6 py-2 rounded-lg text-base shadow-sm transition-all duration-200 hover:bg-gray-700 focus:outline-none cursor-right-up"
             >
               Contact Us
-            </a>
+            </Link>
             <button className="hidden md:flex items-center space-x-2 text-gray-300 hover:text-white px-3 py-2 rounded transition-colors duration-200 focus:outline-none cursor-right-up">
               <Globe className="w-5 h-5" />
               <span className="font-medium">EN</span>
@@ -117,33 +142,33 @@ const Header = () => {
               {productsDropdownOpen && (
                 <div className="mt-1 ml-4 w-40 bg-gray-900 rounded-xl shadow-lg py-2 z-50 animate-fade-in">
                   {productsList.map((prod) => (
-                    <a
+                    <Link
                       key={prod.name}
-                      href={prod.href}
+                      to={prod.href}
                       className="block px-3 py-2 text-gray-200 hover:bg-gray-800 hover:text-white rounded transition-colors duration-150 text-base cursor-right-up"
                     >
                       {prod.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               )}
             </div>
             {/* Other nav links */}
             {navigation.filter((item) => item.name !== 'Products').map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
+                to={item.href}
                 className="block px-3 py-2 text-gray-300 hover:text-white transition-colors duration-300 cursor-right-up"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
-            <a
-              href="/get-quote"
+            <Link
+              to="/contact"
               className="block w-full text-center bg-gray-800 text-white font-semibold px-4 py-2 rounded-lg mt-2 transition-all duration-200 hover:bg-gray-700 cursor-right-up"
             >
-              Get Quote
-            </a>
+              Contact Us
+            </Link>
             <button className="flex items-center space-x-2 text-gray-300 hover:text-white px-3 py-2 rounded transition-colors duration-200 mt-2 cursor-right-up">
               <Globe className="w-5 h-5" />
               <span className="font-medium">EN</span>
