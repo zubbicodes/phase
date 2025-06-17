@@ -3,13 +3,13 @@ import { Linkedin, Twitter, Circle } from 'lucide-react';
 
 const mainMenu = [
   { name: 'Home', href: '/' },
-  { name: 'Products', href: '/products' },
+    { name: 'Products', href: '/products' },
   { name: 'Workflow', href: '/workflow' },
-  { name: 'Certifications', href: '/certifications' },
-  { name: 'Events', href: '/events' },
+    { name: 'Certifications', href: '/certifications' },
+    { name: 'Events', href: '/events' },
   { name: 'About', href: '/about' },
-  { name: 'Contact', href: '/contact' },
-];
+    { name: 'Contact', href: '/contact' },
+  ];
 
 const productLinks = [
   { name: 'Elastics', href: '/products/elastics', isNew: true },
