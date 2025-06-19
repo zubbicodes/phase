@@ -1,5 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Tilt } from '../components/ui/tilt';
+import { Spotlight } from '../components/ui/spotlight';
+import { Sparkles } from '../components/ui/sparkles';
 import { 
   Package, 
   Truck, 
@@ -16,7 +19,7 @@ const Workflow = () => {
       title: "Raw Material Selection",
       description: "Carefully selecting high-quality raw materials that meet our strict standards",
       icon: Package,
-      image: "/workflow/raw-materials.jpg",
+      image: "/workflow/12.JPG",
       details: [
         "Quality inspection of incoming materials",
         "Material testing and verification",
@@ -28,7 +31,7 @@ const Workflow = () => {
       title: "Production Process",
       description: "State-of-the-art manufacturing with precision and care",
       icon: Factory,
-      image: "/workflow/production.jpg",
+      image: "/workflow/8.JPG",
       details: [
         "Automated production lines",
         "Quality control checkpoints",
@@ -40,7 +43,7 @@ const Workflow = () => {
       title: "Quality Assurance",
       description: "Rigorous testing and quality control at every stage",
       icon: CheckCircle2,
-      image: "/workflow/quality.jpg",
+      image: "/workflow/16.JPG",
       details: [
         "Comprehensive testing procedures",
         "Quality standards verification",
@@ -52,7 +55,7 @@ const Workflow = () => {
       title: "Packaging",
       description: "Secure and sustainable packaging solutions",
       icon: Box,
-      image: "/workflow/packaging.jpg",
+      image: "/workflow/14.JPG",
       details: [
         "Eco-friendly packaging materials",
         "Custom packaging solutions",
@@ -64,9 +67,9 @@ const Workflow = () => {
       title: "Final Inspection",
       description: "Thorough final check before shipping",
       icon: ClipboardCheck,
-      image: "/workflow/inspection.jpg",
+      image: "/workflow/18.png",
       details: [
-        "Final quality verification",
+        "Matel Detection & Quality Check",
         "Documentation review",
         "Order accuracy check",
         "Packaging integrity"
@@ -76,7 +79,7 @@ const Workflow = () => {
       title: "Shipping & Delivery",
       description: "Efficient logistics and reliable delivery",
       icon: Truck,
-      image: "/workflow/shipping.jpg",
+      image: "/workflow/19.png",
       details: [
         "Global shipping network",
         "Real-time tracking",
@@ -90,10 +93,13 @@ const Workflow = () => {
     <div className="min-h-screen bg-black text-white">
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Sparkles className="w-full h-full" color="#3b82f6" background="transparent" density={80} />
+        </div>
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/workflow/hero-bg.jpg')",
+            backgroundImage: "url('/workflow/9.JPG')",
             filter: "brightness(0.3)"
           }}
         />
@@ -121,74 +127,77 @@ const Workflow = () => {
       {/* Workflow Timeline */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="space-y-20">
-            {workflowSteps.map((step, index) => (
-              <motion.div
-                key={step.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="relative"
-              >
-                {/* Timeline Line */}
-                {index < workflowSteps.length - 1 && (
-                  <div className="absolute left-8 top-24 bottom-0 w-0.5 bg-gray-800"></div>
-                )}
-
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                  {/* Left Side - Icon and Title */}
-                  <div className="flex items-center space-x-6">
-                    <div className="relative">
-                      <div className="w-16 h-16 bg-blue-600/20 rounded-full flex items-center justify-center">
-                        <step.icon className="w-8 h-8 text-blue-500" />
+          <div className="space-y-32">
+            {workflowSteps.map((step, index) => {
+              const isEven = index % 2 === 0;
+              return (
+                <motion.div
+                  key={step.title}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className={`relative flex flex-col md:flex-row ${isEven ? '' : 'md:flex-row-reverse'}`}
+                >
+                  {/* Timeline Line */}
+                  {index < workflowSteps.length - 1 && (
+                    <div className={`hidden md:block absolute ${isEven ? 'left-1/2' : 'right-1/2'} top-1/2 w-0.5 h-full bg-gray-800 z-0`}></div>
+                  )}
+                  {/* Image Side */}
+                  <div className="md:w-1/2 flex justify-center items-center relative z-10">
+                    <Tilt rotationFactor={10} springOptions={{ stiffness: 30, damping: 8, mass: 0.4 }} className="w-full max-w-xl">
+                      <div className="relative group">
+                        <img
+                          src={step.image}
+                          alt={step.title}
+                          className="w-full h-[420px] md:h-[500px] object-cover rounded-3xl shadow-2xl border-4 border-blue-700/30 group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <Spotlight className="z-20 from-blue-400/40 via-blue-200/10 to-transparent blur-2xl" size={320} />
                       </div>
-                      <div className="absolute -right-3 -top-3 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-sm font-bold">
-                        {index + 1}
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold mb-2">{step.title}</h3>
-                      <p className="text-gray-400">{step.description}</p>
-                    </div>
+                    </Tilt>
                   </div>
-
-                  {/* Right Side - Image and Details */}
-                  <div className="space-y-6">
+                  {/* Text Side */}
+                  <div className="md:w-1/2 flex flex-col justify-center items-start px-0 md:px-12 mt-10 md:mt-0">
                     <motion.div
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.8, delay: 0.2 }}
-                      viewport={{ once: true }}
-                      className="relative h-64 rounded-2xl overflow-hidden"
-                    >
-                      <img
-                        src={step.image}
-                        alt={step.title}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    </motion.div>
-                    <motion.div
-                      initial={{ opacity: 0, x: 50 }}
+                      initial={{ opacity: 0, x: isEven ? -50 : 50 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.8, delay: 0.2 }}
                       viewport={{ once: true }}
-                      className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8"
+                      className="mb-6 flex items-center space-x-6"
+                    >
+                      <div className="relative">
+                        <div className="w-16 h-16 bg-blue-600/20 rounded-full flex items-center justify-center">
+                          <step.icon className="w-8 h-8 text-blue-500" />
+                        </div>
+                        <div className="absolute -right-3 -top-3 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-sm font-bold">
+                          {index + 1}
+                        </div>
+                      </div>
+                      <div>
+                        <h3 className="text-3xl font-bold mb-2">{step.title}</h3>
+                        <p className="text-gray-400 text-lg">{step.description}</p>
+                      </div>
+                    </motion.div>
+                    <motion.div
+                      initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.8, delay: 0.3 }}
+                      viewport={{ once: true }}
+                      className="bg-gray-900/60 backdrop-blur-sm rounded-2xl p-8 w-full shadow-lg"
                     >
                       <ul className="space-y-4">
                         {step.details.map((detail, i) => (
                           <li key={i} className="flex items-start space-x-3">
                             <ArrowRight className="w-5 h-5 text-blue-500 mt-1 flex-shrink-0" />
-                            <span className="text-gray-300">{detail}</span>
+                            <span className="text-gray-300 text-lg">{detail}</span>
                           </li>
                         ))}
                       </ul>
                     </motion.div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>

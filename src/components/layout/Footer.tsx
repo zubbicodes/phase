@@ -74,7 +74,6 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex flex-col items-center justify-center mt-20">
-          <img src="/ad_logo.png" alt="ADSONS Logo" className="h-20 w-20 mb-4" />
           <span className="text-5xl font-bold text-white tracking-tight mb-8">ADSONS GROUP OF INDUSTRIES</span>
         </div>
         <div className="flex flex-col md:flex-row md:justify-between items-center mt-12 border-t border-gray-800 pt-8 gap-6">

@@ -20,6 +20,9 @@ const Header = () => {
     { name: 'Cords', href: '/products/cords' },
     { name: 'Tapes', href: '/products/tapes' },
     { name: 'Buttons', href: '/products/buttons' },
+    { name: 'Fabrics', href: '' },
+    { name: 'Labels', href: '' },
+    { name: 'Yarn', href: '' },
   ];
 
   // Dropdown handlers with delay

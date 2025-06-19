@@ -85,7 +85,7 @@ const attributes = [
 // --- Product Data from Image ---
 const essentials = [
   {
-    name: 'Special Buttonhole Elastic',
+    name: 'Special Adjustable Elastic',
     image: '/products/elastic/1.jpg',
     description: '87/13 Polyester+Polyester/Spandex',
     specs: 'T10211, T10217',
