@@ -1,28 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Products = () => {
-  const productCategories = [
-    {
-      title: "Apparel & Textiles",
-      description: "High-quality clothing and textile products meeting international standards",
-      image: "/products/apparel.jpg"
-    },
-    {
-      title: "Home Goods",
-      description: "Premium home decor and household items",
-      image: "/products/home.jpg"
-    },
-    {
-      title: "Electronics",
-      description: "Innovative electronic products and accessories",
-      image: "/products/electronics.jpg"
-    },
-    {
-      title: "Accessories",
-      description: "Stylish and functional accessories for everyday use",
-      image: "/products/accessories.jpg"
-    }
+  const productsList = [
+    { name: 'Elastics', href: '/products/elastics', image: '/products/elastic/1.jpg', description: 'Durable and versatile elastics for various applications.' },
+    { name: 'Cords', href: '/products/cords', image: '/products/elastic/2.jpg', description: 'High-strength cords for apparel and industrial use.' },
+    { name: 'Tapes', href: '/products/tapes', image: '/products/elastic/3.jpg', description: 'A wide range of woven and non-woven tapes.' },
+    { name: 'Buttons', href: '/products/buttons', image: '/products/elastic/4.jpg', description: 'Stylish and functional buttons for all types of garments.' },
+    { name: 'Fabrics', href: '#', image: '/products/elastic/5.jpg', description: 'Premium fabrics for fashion and home textiles.' },
+    { name: 'Labels', href: '#', image: '/products/elastic/6.jpg', description: 'Customizable labels for branding and product information.' },
+    { name: 'Yarn', href: '#', image: '/products/elastic/7.jpg', description: 'High-quality yarn for knitting and weaving.' },
   ];
 
   return (
@@ -54,30 +42,29 @@ const Products = () => {
       {/* Products Grid */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {productCategories.map((category, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {productsList.map((product, index) => (
               <motion.div
-                key={category.title}
+                key={product.name}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-gray-900 rounded-2xl overflow-hidden shadow-xl"
               >
-                <div className="aspect-w-16 aspect-h-9">
-                  <img
-                    src={category.image}
-                    alt={category.title}
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-                <div className="p-8">
-                  <h3 className="text-2xl font-bold mb-4">{category.title}</h3>
-                  <p className="text-gray-300">{category.description}</p>
-                  <button className="mt-6 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                    Learn More
-                  </button>
-                </div>
+                <Link to={product.href} className="block bg-gray-900 rounded-2xl overflow-hidden shadow-xl group h-full flex flex-col">
+                  <div className="relative h-64">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300"
+                    />
+                     <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+                  </div>
+                  <div className="p-6 flex-grow flex flex-col">
+                    <h3 className="text-2xl font-bold mb-2 text-white">{product.name}</h3>
+                    <p className="text-gray-300 flex-grow">{product.description}</p>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </div>

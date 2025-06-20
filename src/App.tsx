@@ -11,6 +11,8 @@ const About = lazy(() => import('./pages/About'));
 const Workflow = lazy(() => import('./pages/Workflow'));
 const ElasticProducts = lazy(() => import('./pages/ElasticProducts'));
 const Tapes = lazy(() => import('./pages/Tapes'));
+const Cords = lazy(() => import('./pages/Cords'));
+const Buttons = lazy(() => import('./pages/Buttons'));
 const Contact = lazy(() => import('./pages/Contact'));
 
 // Loading component
@@ -31,6 +33,8 @@ function App() {
               <Route path="/products" element={<Products />} />
               <Route path="/products/elastics" element={<ElasticProducts />} />
               <Route path="/products/tapes" element={<Tapes />} />
+              <Route path="/products/cords" element={<Cords />} />
+              <Route path="/products/buttons" element={<Buttons />} />
               <Route path="/certifications" element={<Certifications />} />
               <Route path="/events" element={<Events />} />
               <Route path="/about" element={<About />} />

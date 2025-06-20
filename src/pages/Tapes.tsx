@@ -5,24 +5,24 @@ import { Tilt } from '../components/ui/tilt';
 
 const features = [
   'This webbing was made with fine gloss color yarn. Various yarns can be woven/printed with various pattern types such as rainbow, grid, gradient, or reflective yarn to present enhanced multi-color, surface texture, and unique effects.',
-  'PAHO webbing produced by eco-friendly dyeing offers vibrant color for every method.',
+  'ADSONS webbing produced by eco-friendly dyeing offers vibrant color for every method.',
   'Webbing with spring joint processes for softness & tenacious flexibility and suitable for footwear, garments, sportswear, underseat bag & accessories.'
 ];
 
 const essentials = [
   {
     name: 'Woven Tape',
-    image: '/products/cords/woven-tape.jpg',
+    image: '/products/tapes/2.jpg',
     description: 'Customization and integration of over 8 yarn types to create various textile & pattern and unique quality.'
   },
   {
     name: 'Thick & Thin Knit Tape',
-    image: '/products/cords/thick-thin-knit.jpg',
+    image: '/products/tapes/3.jpg',
     description: 'Soft, light, and flexible with various textile patterns and highly textile structure.'
   },
   {
     name: 'Braided Tape',
-    image: '/products/cords/braided-tape.jpg',
+    image: '/products/tapes/4.jpg',
     description: 'Silky & cross piping structure utilized with several uniform yarns to present slight grip, resistance structure for piping and edge tape.'
   }
 ];
@@ -30,7 +30,7 @@ const essentials = [
 const jacquardPatterns = [
   {
     name: 'Jacquard Patterns',
-    image: '/products/cords/jacquard-patterns.jpg',
+    image: '/products/tapes/4.jpg',
     description: 'Multi-color delicate jacquard artwork and dazzling tape brings soft, hand feel. Patterns can be customized according to design and requirement.'
   }
 ];
@@ -79,6 +79,7 @@ const Tapes = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Hero Section */}
+      
       <div className="relative h-[40vh] flex items-center justify-center overflow-hidden">
         <div className="relative z-10 text-center px-4">
           <motion.h1
@@ -87,7 +88,7 @@ const Tapes = () => {
             transition={{ duration: 0.8 }}
             className="text-5xl md:text-7xl font-bold mb-6"
           >
-            Cords & Webbing
+            Tapes & Webbing
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -109,7 +110,7 @@ const Tapes = () => {
               <li key={i} className="text-lg text-gray-300">{f}</li>
             ))}
           </ul>
-          <img src="/products/cords/feature-hero.jpg" alt="Cords Feature" className="rounded-lg w-full max-w-xs md:max-w-sm" />
+          <img src="/products/tapes/1.jpg" alt="Cords Feature" className="rounded-lg w-full max-w-xs md:max-w-sm" />
         </div>
       </div>
 
@@ -118,150 +119,6 @@ const Tapes = () => {
         <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">The Essentials</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {essentials.map((item, idx) => (
-            <Tilt className="h-full" key={item.name + idx}>
-              <Card className="bg-black/50 border-gray-800 hover:border-gray-700 transition-colors h-full">
-                <CardHeader>
-                  <CardTitle className="text-lg md:text-xl">{item.name}</CardTitle>
-                  <CardDescription className="text-gray-400 text-xs md:text-sm">
-                    {item.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="aspect-video relative rounded-lg overflow-hidden mb-2">
-                    <img src={item.image} alt={item.name} className="object-cover w-full h-full" />
-                  </div>
-                </CardContent>
-              </Card>
-            </Tilt>
-          ))}
-        </div>
-      </div>
-
-      {/* Jacquard Patterns Section */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Jacquard Patterns</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {jacquardPatterns.map((item, idx) => (
-            <Tilt className="h-full" key={item.name + idx}>
-              <Card className="bg-black/50 border-gray-800 hover:border-gray-700 transition-colors h-full">
-                <CardHeader>
-                  <CardTitle className="text-lg md:text-xl">{item.name}</CardTitle>
-                  <CardDescription className="text-gray-400 text-xs md:text-sm">
-                    {item.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="aspect-video relative rounded-lg overflow-hidden mb-2">
-                    <img src={item.image} alt={item.name} className="object-cover w-full h-full" />
-                  </div>
-                </CardContent>
-              </Card>
-            </Tilt>
-          ))}
-        </div>
-      </div>
-
-      {/* Eyelet Webbing Section */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Eyelet Webbing</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {eyeletWebbing.map((item, idx) => (
-            <Tilt className="h-full" key={item.name + idx}>
-              <Card className="bg-black/50 border-gray-800 hover:border-gray-700 transition-colors h-full">
-                <CardHeader>
-                  <CardTitle className="text-lg md:text-xl">{item.name}</CardTitle>
-                  <CardDescription className="text-gray-400 text-xs md:text-sm">
-                    {item.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="aspect-video relative rounded-lg overflow-hidden mb-2">
-                    <img src={item.image} alt={item.name} className="object-cover w-full h-full" />
-                  </div>
-                </CardContent>
-              </Card>
-            </Tilt>
-          ))}
-        </div>
-      </div>
-
-      {/* Dragonfly Webbing Section */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Dragonfly Webbing</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {dragonflyWebbing.map((item, idx) => (
-            <Tilt className="h-full" key={item.name + idx}>
-              <Card className="bg-black/50 border-gray-800 hover:border-gray-700 transition-colors h-full">
-                <CardHeader>
-                  <CardTitle className="text-lg md:text-xl">{item.name}</CardTitle>
-                  <CardDescription className="text-gray-400 text-xs md:text-sm">
-                    {item.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="aspect-video relative rounded-lg overflow-hidden mb-2">
-                    <img src={item.image} alt={item.name} className="object-cover w-full h-full" />
-                  </div>
-                </CardContent>
-              </Card>
-            </Tilt>
-          ))}
-        </div>
-      </div>
-
-      {/* B-Swan Wide-Narrow Webbing Section */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">B-Swan Wide-Narrow Webbing</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {bSwanWebbing.map((item, idx) => (
-            <Tilt className="h-full" key={item.name + idx}>
-              <Card className="bg-black/50 border-gray-800 hover:border-gray-700 transition-colors h-full">
-                <CardHeader>
-                  <CardTitle className="text-lg md:text-xl">{item.name}</CardTitle>
-                  <CardDescription className="text-gray-400 text-xs md:text-sm">
-                    {item.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="aspect-video relative rounded-lg overflow-hidden mb-2">
-                    <img src={item.image} alt={item.name} className="object-cover w-full h-full" />
-                  </div>
-                </CardContent>
-              </Card>
-            </Tilt>
-          ))}
-        </div>
-      </div>
-
-      {/* Multi-Strand Knit Tape Section */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Multi-Strand Knit Tape</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {multiStrandKnit.map((item, idx) => (
-            <Tilt className="h-full" key={item.name + idx}>
-              <Card className="bg-black/50 border-gray-800 hover:border-gray-700 transition-colors h-full">
-                <CardHeader>
-                  <CardTitle className="text-lg md:text-xl">{item.name}</CardTitle>
-                  <CardDescription className="text-gray-400 text-xs md:text-sm">
-                    {item.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="aspect-video relative rounded-lg overflow-hidden mb-2">
-                    <img src={item.image} alt={item.name} className="object-cover w-full h-full" />
-                  </div>
-                </CardContent>
-              </Card>
-            </Tilt>
-          ))}
-        </div>
-      </div>
-
-      {/* Sparta Strap-Net Shoe Upper Section */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">The Sparta Strap-Net Shoe Upper</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {spartaStrap.map((item, idx) => (
             <Tilt className="h-full" key={item.name + idx}>
               <Card className="bg-black/50 border-gray-800 hover:border-gray-700 transition-colors h-full">
                 <CardHeader>

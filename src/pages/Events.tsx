@@ -1,14 +1,16 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Tilt } from '../components/ui/tilt';
 import { Spotlight } from '../components/ui/spotlight';
 
 const Events = () => {
+  const [expandedEvent, setExpandedEvent] = useState<string | null>(null);
+
   const events = [
     {
       title: "2024 FASHION EXPO",
       date: "October 18, 2024",
-      image: "/events/event.jpeg",
+      image: "/events/1.jpeg",
       description: "A week of sustainable fashion innovation and networking. Industry leaders gathered to discuss cutting-edge sustainable practices and shape the future of fashion manufacturing.",
       location: "Taipei, Taiwan",
       type: "Exhibition",
@@ -17,48 +19,12 @@ const Events = () => {
         "Industry networking",
         "Innovation workshops",
         "Future trends discussion"
-      ]
-    },
-    {
-      title: "2024 TAISPO",
-      date: "March 6-9, 2024",
-      image: "/events/event.jpeg",
-      description: "Taiwan's premier sports and outdoor equipment exhibition, showcasing the latest innovations in sports gear and outdoor equipment.",
-      location: "Taipei, Taiwan",
-      type: "Trade Show",
-      highlights: [
-        "Sports equipment showcase",
-        "Outdoor gear exhibition",
-        "Industry networking",
-        "Product demonstrations"
-      ]
-    },
-    {
-      title: "2023 TITAS",
-      date: "October 17-19, 2023",
-      image: "/events/event.jpeg",
-      description: "Taipei Innovative Textile Application Show - A leading platform for innovative textile solutions and sustainable fashion.",
-      location: "Taipei, Taiwan",
-      type: "Textile Exhibition",
-      highlights: [
-        "Innovative textile showcase",
-        "Sustainable fashion focus",
-        "Industry networking",
-        "Technology demonstrations"
-      ]
-    },
-    {
-      title: "2022 FASHION EXPO",
-      date: "November 10, 2022",
-      image: "/events/event.jpeg",
-      description: "Annual fashion exhibition showcasing the latest trends and innovations in the fashion industry.",
-      location: "Taipei, Taiwan",
-      type: "Fashion Show",
-      highlights: [
-        "Fashion trends showcase",
-        "Designer collections",
-        "Industry networking",
-        "Fashion workshops"
+      ],
+      gallery: [
+        "/events/2.jpeg",
+        "/events/3.jpeg",
+        "/events/4.jpeg",
+        "/events/5.jpeg"
       ]
     }
   ];
@@ -123,7 +89,7 @@ const Events = () => {
                     }}
                   />
                   <div className="grid md:grid-cols-2 gap-8">
-                    <div className="relative h-[400px]">
+                    <div className="relative h-full">
                       <img
                         src={event.image}
                         alt={event.title}
@@ -157,15 +123,53 @@ const Events = () => {
                           ))}
                         </ul>
                       </div>
-                      <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full inline-flex items-center">
-                        Learn More
-                        <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
+                      <button 
+                        onClick={() => setExpandedEvent(expandedEvent === event.title ? null : event.title)}
+                        className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full inline-flex items-center"
+                      >
+                        {expandedEvent === event.title ? 'Hide Gallery' : 'Show Gallery'}
+                        <motion.svg 
+                          animate={{ rotate: expandedEvent === event.title ? 180 : 0 }}
+                          className="ml-2 w-4 h-4" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                        </motion.svg>
                       </button>
                     </div>
                   </div>
                 </Tilt>
+                <AnimatePresence>
+                  {expandedEvent === event.title && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.5, ease: 'easeInOut' }}
+                      className="overflow-hidden"
+                    >
+                      <div className="p-8 bg-gray-950">
+                        <h4 className="text-2xl font-bold mb-4 text-white">Event Gallery</h4>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                          {event.gallery.map((img, i) => (
+                            <motion.div
+                              key={i}
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              whileHover={{ scale: 1.2, zIndex: 10 }}
+                              transition={{ duration: 0.2, delay: i * 0.1 }}
+                              className="relative rounded-lg cursor-pointer"
+                            >
+                              <img src={img} alt={`Gallery image ${i + 1}`} className="w-full h-full object-cover rounded-lg" />
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
             ))}
           </div>
@@ -207,4 +211,4 @@ const Events = () => {
   );
 };
 
-export default Events; 
+export default Events;

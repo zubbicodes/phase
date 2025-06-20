@@ -7,13 +7,13 @@ const events = [
   {
     title: "2024 FASHION EXPO",
     date: "October 18, 2024",
-    image: "/events/event.jpeg",
+    image: "/events/1.jpeg",
     description: "A week of sustainable fashion innovation and networking. Industry leaders gathered to discuss cutting-edge sustainable practices and shape the future of fashion manufacturing.",
   },
   {
     title: "2024 TAISPO",
     date: "March 6-9, 2024",
-    image: "/events/event.jpeg",
+    image: "/events/2.jpeg",
   },
   {
     title: "2023 TITAS",
@@ -23,7 +23,7 @@ const events = [
   {
     title: "2022 FASHION EXPO",
     date: "November 10, 2023",
-    image: "/events/event.jpeg",
+    image: "/events/3.jpeg",
   },
 ];
 
