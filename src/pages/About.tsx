@@ -85,6 +85,12 @@ const About = () => {
                 Our journey has been marked by continuous improvement, technological advancement, and a 
                 steadfast dedication to environmental responsibility.
               </p>
+              <p className="text-gray-300 text-lg">
+              Sustainability is not just a principle for us—it’s a responsibility. We integrate eco-friendly practices at every stage of production, from sourcing raw materials responsibly to minimizing waste and reducing our carbon footprint. By prioritizing green initiatives, we aim to set an example for the industry, proving that exceptional quality and environmental stewardship can go hand in hand.
+              </p>
+              <p className="text-gray-300 text-lg">
+              As we look ahead, we remain steadfast in our mission to innovate, inspire, and lead. Our story is still being written, and we invite you to be a part of it. Join us as we continue to redefine what’s possible—delivering excellence today while paving the way for a smarter, more sustainable tomorrow.
+              </p>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 50 }}
@@ -94,7 +100,7 @@ const About = () => {
               className="relative"
             >
               <img
-                src="/about/company.jpg"
+                src="/about.jpeg"
                 alt="Our Company"
                 className="rounded-2xl shadow-2xl"
               />
@@ -187,50 +193,6 @@ const About = () => {
                     </p>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="py-20 bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Leadership Team</h2>
-            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-              Experienced professionals driving innovation and excellence
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((_, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 text-center"
-              >
-                <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden">
-                  <img
-                    src={`/team/member${index + 1}.jpg`}
-                    alt={`Team Member ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-2">John Doe</h3>
-                <p className="text-blue-400 mb-4">Chief Executive Officer</p>
-                <p className="text-gray-400">
-                  Leading the company with over 20 years of industry experience
-                </p>
               </motion.div>
             ))}
           </div>

@@ -11,6 +11,7 @@ const About = lazy(() => import('./pages/About'));
 const Workflow = lazy(() => import('./pages/Workflow'));
 const ElasticProducts = lazy(() => import('./pages/ElasticProducts'));
 const Tapes = lazy(() => import('./pages/Tapes'));
+const Contact = lazy(() => import('./pages/Contact'));
 
 // Loading component
 const LoadingSpinner = () => (
@@ -34,6 +35,7 @@ function App() {
               <Route path="/events" element={<Events />} />
               <Route path="/about" element={<About />} />
               <Route path="/workflow" element={<Workflow />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           </Suspense>
         </Layout>
