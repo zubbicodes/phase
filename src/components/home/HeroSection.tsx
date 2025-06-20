@@ -2,100 +2,92 @@ import React from 'react';
 import ParallaxCarousel from '../../components/ui/ParallaxCarousel';
 
 const slides = [
-
-  {
-    id: 3,
-    image: '/hero/ads_fabric.png', // Using ads_fabric.png
-    title: 'HIGH-PERFORMANCE FABRICS',
-    description: 'Innovative fabrics designed for durability, comfort, and exceptional performance in all conditions.',
-    cardImage: '/hero/ads_fabric.png', // Example: Use the same image for card
-    cardTitle: 'Fabric Applications',
-    cardDescription: 'Elevated wash durability, long-lasting performance for various fabric uses.',
-  },
-  
-  {
-    id: 2,
-    image: '/hero/ads_3.jpg', // Using ads_3.jpg
-    title: 'ADVANCED MOISTURE WICKING',
-    description: 'Engineered fabrics that draw moisture away from the skin, keeping you dry and comfortable during intense activities.',
-    cardImage: '/hero/ads_3.jpg', // Example: Another image for card
-    cardTitle: 'Moisture Wicking Uses',
-    cardDescription: 'Ideal for athletic wear and garments requiring high breathability.',
-  },
-  
-  {
-    id: 4,
-    image: '/hero/ads_tape.png', // Using ads_tape.png
-    title: 'VERSATILE TAPES & TRIMS',
-    description: 'A wide range of tapes and trims for various applications, offering strength, flexibility, and aesthetic appeal.',
-    cardImage: '/hero/ads_tape.png', // Example: Use the same image for card
-    cardTitle: 'Tape Applications',
-    cardDescription: 'Strength, flexibility, and aesthetic appeal for various applications.',
-  },
   {
     id: 1,
-    image: '/hero/ads_1.jpg', // Using ads_1.jpg
-    title: 'WATER REPELLENT JACQUARD FABRIC',
-    description: 'Durable water repellent treatments for delicate jacquard woven fabric to prevent the fabric from becoming saturated with water.',
-    cardImage: '/hero/ads_2.png', // Example: Use the same image for card
-    cardTitle: 'Fabric Applications',
-    cardDescription: 'Elevated wash durability, long-lasting performance for various fabric uses.',
+    preTitle: 'ADSONS INNOVATION',
+    title: 'Engineered\nfor Peak\nPerformance',
+    description: 'Discover our advanced textiles, crafted for durability, comfort, and unparalleled performance in any condition.',
+    image: '/hero/fabric_1.png',
   },
   {
-    id: 5,
-    image: '/hero/ads_elastic.png', // Using ads_elastic.png
-    title: 'PREMIUM QUALITY ELSASTIC',
-    description: 'Elastic materials providing superior stretch and recovery, ideal for demanding applications requiring flexibility.',
-    cardImage: '/hero/ads_elastic.png', // Example: Use the same image for card
-    cardTitle: 'Elastic Applications',
-    cardDescription: 'Superior stretch and recovery, ideal for demanding applications requiring flexibility.',
+    id: 4,
+    preTitle: 'QUALITY ASSURANCE',
+    title: 'Excellence\nin Every\nThread',
+    description: 'With a focus on quality, our jacquard fabrics offer superior feel and long-lasting durability for any application.',
+    image: '/hero/fabric_4.jpg',
   },
+  {
+    id: 2,
+    preTitle: 'SUSTAINABLE SOLUTIONS',
+    title: 'Weaving a\nGreener\nTomorrow',
+    description: 'Our commitment to sustainability is woven into every fiber, with eco-friendly materials and responsible manufacturing.',
+    image: '/hero/fabric_2.jpg',
+  },
+ 
   {
     id: 6,
-    image: '/hero/fabric_1.png', // Using ads_elastic.png
-    title: 'PREMIUM QUALITY ELSASTIC',
-    description: 'Elastic materials providing superior stretch and recovery, ideal for demanding applications requiring flexibility.',
-    cardImage: '/hero/ads_elastic.png', // Example: Use the same image for card
-    cardTitle: 'Elastic Applications',
-    cardDescription: 'Superior stretch and recovery, ideal for demanding applications requiring flexibility.',
+    preTitle: 'VERSATILE ELASTICS',
+    title: 'Superior\nStretch and\nRecovery',
+    description: 'High-performance elastics that offer unmatched flexibility and durability for any application.',
+    image: '/hero/ads_elastic.png',
   },
   {
     id: 7,
-    image: '/hero/fabric_2.jpg', // Using ads_elastic.png
-    title: 'PREMIUM QUALITY ELSASTIC',
-    description: 'Elastic materials providing superior stretch and recovery, ideal for demanding applications requiring flexibility.',
-    cardImage: '/hero/ads_elastic.png', // Example: Use the same image for card
-    cardTitle: 'Elastic Applications',
-    cardDescription: 'Superior stretch and recovery, ideal for demanding applications requiring flexibility.',
-  },  
+    preTitle: 'DURABLE CORDS',
+    title: 'Strength\nin Every\nStrand',
+    description: 'Our cords are engineered for maximum strength and resilience, perfect for demanding uses.',
+    image: '/products/cords/2.jpg',
+  },
   {
     id: 8,
-    image: '/hero/fabric_3.png', // Using ads_elastic.png
-    title: 'PREMIUM QUALITY ELSASTIC',
-    description: 'Elastic materials providing superior stretch and recovery, ideal for demanding applications requiring flexibility.',
-    cardImage: '/hero/ads_elastic.png', // Example: Use the same image for card
-    cardTitle: 'Elastic Applications',
-    cardDescription: 'Superior stretch and recovery, ideal for demanding applications requiring flexibility.',
-  },  
+    preTitle: 'CUSTOM LABELS',
+    title: 'The Finishing\nTouch of\nBranding',
+    description: 'High-quality labels that provide a premium finish and lasting brand identity.',
+    image: '/hero/lables_1.png',
+  },
   {
     id: 9,
-    image: '/hero/fabric_4.jpg', // Using ads_elastic.png
-    title: 'PREMIUM QUALITY ELSASTIC',
-    description: 'Elastic materials providing superior stretch and recovery, ideal for demanding applications requiring flexibility.',
-    cardImage: '/hero/ads_elastic.png', // Example: Use the same image for card
-    cardTitle: 'Elastic Applications',
-    cardDescription: 'Superior stretch and recovery, ideal for demanding applications requiring flexibility.',
-  },  
+    preTitle: 'RELIABLE ZIPS',
+    title: 'Seamless\nand\nSecure',
+    description: 'Smooth, durable zips designed for reliability and ease of use in any garment.',
+    image: '/hero/ads_1.jpg',
+  },
   {
     id: 10,
-    image: '/hero/fabric_5.jpg', // Using ads_elastic.png
-    title: 'PREMIUM QUALITY ELSASTIC',
-    description: 'Elastic materials providing superior stretch and recovery, ideal for demanding applications requiring flexibility.',
-    cardImage: '/hero/ads_elastic.png', // Example: Use the same image for card
-    cardTitle: 'Elastic Applications',
-    cardDescription: 'Superior stretch and recovery, ideal for demanding applications requiring flexibility.',
-  },  
-
+    preTitle: 'ELEGANT SLIDERS',
+    title: 'Smooth\nFunctionality,\nElegant Design',
+    description: 'Our sliders combine sleek design with flawless performance for a premium feel.',
+    image: '/hero/slider.jpg',
+  },
+  {
+    id: 11,
+    preTitle: 'PREMIUM YARN',
+    title: 'The               Foundation\nof\nQuality',
+    description: 'High-quality yarn that provides the perfect base for creating exceptional textiles.',
+    image: '/hero/thread_1.jpg',
+  },
+  {
+    id: 12,
+    preTitle: 'INNOVATIVE TAPES',
+    title: 'Versatility\nin Every\nWeave',
+    description: 'A wide range of tapes designed for strength, flexibility, and aesthetic appeal in any application.',
+    image: '/products/tapes/6.jpg',
+  },
+  {
+    id: 3,
+    preTitle: 'CUTTING-EDGE DESIGN',
+    title: 'Where Style\nMeets\nFunctionality',
+    description: 'Explore our versatile range of tapes, trims, and elastics that provide strength, flexibility, and aesthetic appeal.',
+    image: '/hero/fabric_3.png',
+  },
+  
+  {
+    id: 5,
+    preTitle: 'ADVANCED TECHNOLOGY',
+    title: 'The Future\nof\nFabric',
+    description: 'We leverage the latest technology to create innovative textiles that are changing the future of the industry.',
+    image: '/hero/fabric_5.jpg',
+  },
 ];
 
 const HeroSection = () => {

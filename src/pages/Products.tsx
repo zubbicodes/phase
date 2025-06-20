@@ -5,12 +5,13 @@ import { Link } from 'react-router-dom';
 const Products = () => {
   const productsList = [
     { name: 'Elastics', href: '/products/elastics', image: '/products/elastic/1.jpg', description: 'Durable and versatile elastics for various applications.' },
-    { name: 'Cords', href: '/products/cords', image: '/products/elastic/2.jpg', description: 'High-strength cords for apparel and industrial use.' },
-    { name: 'Tapes', href: '/products/tapes', image: '/products/elastic/3.jpg', description: 'A wide range of woven and non-woven tapes.' },
-    { name: 'Buttons', href: '/products/buttons', image: '/products/elastic/4.jpg', description: 'Stylish and functional buttons for all types of garments.' },
-    { name: 'Fabrics', href: '#', image: '/products/elastic/5.jpg', description: 'Premium fabrics for fashion and home textiles.' },
-    { name: 'Labels', href: '#', image: '/products/elastic/6.jpg', description: 'Customizable labels for branding and product information.' },
-    { name: 'Yarn', href: '#', image: '/products/elastic/7.jpg', description: 'High-quality yarn for knitting and weaving.' },
+    { name: 'Cords', href: '/products/cords', image: '/products/cords/2.jpg', description: 'High-strength cords for apparel and industrial use.' },
+    { name: 'Tapes', href: '/products/tapes', image: '/products/tapes/2.jpg', description: 'A wide range of woven and non-woven tapes.' },
+    { name: 'Buttons', href: '/products/buttons', image: '/products/buttons/1.jpg', description: 'Stylish and functional buttons for all types of garments.' },
+    { name: 'Fabrics', href: '#', image: '/hero/fabric_1.png', description: 'Premium fabrics for fashion and home textiles.' },
+    { name: 'Labels', href: '#', image: '/hero/lables_1.png', description: 'Customizable labels for branding and product information.' },
+    { name: 'Yarn', href: '#', image: '/hero/yarn.jpeg', description: 'High-quality yarn for knitting and weaving.' },
+    { name: 'Zipper - Slider', href: '#', image: '/hero/slider.jpg', description: 'High-quality zips for shirts and bags.' },
   ];
 
   return (
@@ -25,7 +26,7 @@ const Products = () => {
             transition={{ duration: 0.8 }}
             className="text-5xl md:text-6xl font-bold mb-6"
           >
-            Our Products
+            Products
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}

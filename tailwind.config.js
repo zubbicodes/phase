@@ -1,10 +1,13 @@
+const { fontFamily } = require('tailwindcss/defaultTheme');
+
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Raleway', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['Inter', ...fontFamily.sans],
+        serif: ['Playfair Display', ...fontFamily.serif],
       },
     },
   },

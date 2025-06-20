@@ -23,6 +23,7 @@ const Header = () => {
     { name: 'Fabrics', href: '' },
     { name: 'Labels', href: '' },
     { name: 'Yarn', href: '' },
+    { name: 'Zipper', href: '' },
   ];
 
   // Dropdown handlers with delay
@@ -51,7 +52,7 @@ const Header = () => {
           <div className="flex items-center space-x-8">
             <Link to="/" className="flex-shrink-0 flex items-center space-x-2">
               <img
-                src="/ad_logo.png"
+                src="/logo_no_bg.png"
                 alt="ADSONS Logo"
                 className="h-7 w-7"
                 style={{ maxWidth: '32px' }}
