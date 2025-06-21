@@ -111,7 +111,7 @@ const Workflow = () => {
             transition={{ duration: 0.8 }}
             className="text-5xl md:text-6xl font-bold mb-6"
           >
-            Our Workflow
+            Our Workflow 
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
