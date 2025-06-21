@@ -88,6 +88,20 @@ const slides = [
     description: 'We leverage the latest technology to create innovative textiles that are changing the future of the industry.',
     image: '/hero/fabric_5.jpg',
   },
+  {
+    id: 13,
+    preTitle: 'WEATHER-PROOF TECHNOLOGY',
+    title: 'Stay Dry\nStay\nComfortable',
+    description: 'Our water-repellent fabrics are engineered to keep you dry without sacrificing breathability or comfort.',
+    image: '/hero/ads_fabric.png',
+  },
+  {
+    id: 14,
+    preTitle: 'PERFECT FINISHES',
+    title: 'The Tip\nof\nPerfection',
+    description: 'Durable and stylish cord tips that provide the perfect finish to any drawcord or shoelace.',
+    image: '/hero/tips.png',
+  },
 ];
 
 const HeroSection = () => {

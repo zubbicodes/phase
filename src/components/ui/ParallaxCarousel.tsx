@@ -48,48 +48,57 @@ const ParallaxCarousel: React.FC<ParallaxCarouselProps> = ({ slides, interval = 
         >
           <div className="w-full h-full flex">
             {/* Left side with text */}
-            <div className="w-full md:w-1/2 h-full bg-black flex flex-col justify-center p-8 md:p-16 lg:p-24">
-              <motion.p 
-                key={`${currentSlide.id}-pretitle`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-gray-400 font-sans mb-2"
-              >
-                {currentSlide.preTitle}
-              </motion.p>
-              <motion.h2 
-                key={`${currentSlide.id}-title`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-5xl md:text-6xl lg:text-7xl font-serif text-white leading-tight whitespace-pre-line"
-              >
-                {currentSlide.title}
-              </motion.h2>
-              <motion.p
-                 key={`${currentSlide.id}-desc`}
-                 initial={{ opacity: 0, y: 20 }}
-                 animate={{ opacity: 1, y: 0 }}
-                 transition={{ duration: 0.8, delay: 0.6 }}
-                 className="text-gray-300 font-sans mt-4 max-w-md"
-              >
-                {currentSlide.description}
-              </motion.p>
-              <motion.div
-                key={`${currentSlide.id}-button`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-                className="mt-8 w-fit"
-              >
-                <Link
-                  to="/products"
-                  className="bg-white text-black font-semibold px-8 py-3 rounded-lg text-base shadow-sm transition-all duration-200 hover:bg-gray-200 focus:outline-none flex items-center"
+            <div className="relative w-full md:w-1/2 h-full bg-black flex flex-col justify-center p-8 md:p-16 lg:p-24">
+              {/* Background for mobile */}
+              <div className="md:hidden absolute inset-0">
+                <img src={currentSlide.image} alt={currentSlide.title} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-black opacity-60" />
+              </div>
+
+              {/* Text content */}
+              <div className="relative z-10">
+                <motion.p 
+                  key={`${currentSlide.id}-pretitle`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="text-gray-400 font-sans mb-2"
                 >
-                  Explore Products <ChevronRight className="w-4 h-4 ml-2" />
-                </Link>
-              </motion.div>
+                  {currentSlide.preTitle}
+                </motion.p>
+                <motion.h2 
+                  key={`${currentSlide.id}-title`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  className="text-5xl md:text-6xl lg:text-7xl font-serif text-white leading-tight whitespace-pre-line"
+                >
+                  {currentSlide.title}
+                </motion.h2>
+                <motion.p
+                   key={`${currentSlide.id}-desc`}
+                   initial={{ opacity: 0, y: 20 }}
+                   animate={{ opacity: 1, y: 0 }}
+                   transition={{ duration: 0.8, delay: 0.6 }}
+                   className="text-gray-300 font-sans mt-4 max-w-md"
+                >
+                  {currentSlide.description}
+                </motion.p>
+                <motion.div
+                  key={`${currentSlide.id}-button`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.8 }}
+                  className="mt-8 w-fit"
+                >
+                  <Link
+                    to="/products"
+                    className="bg-white text-black font-semibold px-8 py-3 rounded-lg text-base shadow-sm transition-all duration-200 hover:bg-gray-200 focus:outline-none flex items-center"
+                  >
+                    Explore Products <ChevronRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </motion.div>
+              </div>
             </div>
             {/* Right side with image */}
             <div className="hidden md:block md:w-1/2 h-full">

@@ -161,16 +161,7 @@ const wovenElastic = [
     image: '/products/elastic/13.jpg',
     description: 'PAHO introduces slub yarns to create fine-tone colour and pique textured appearance after dyeing.',
   },
-  {
-    name: 'Convex Printed Elastic',
-    image: '/products/elastic/14.jpg',
-    description: 'High exclusivity four surfaces convex print for multi-color 5 patterns across printing and colors. The transparent silicone printing brings unique inspiration.',
-  },
-  {
-    name: 'Radiant Film Geometric Elastic',
-    image: '/products/elastic/15.jpg',
-    description: 'High-reflection bright rainbow with laser-cut geometric effect in the elastic. The geometric classification adds unique gloss to bring futuristic evolution.',
-  },
+ 
 ];
 
 const knitElastic = [
