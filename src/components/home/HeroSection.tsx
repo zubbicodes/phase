@@ -46,6 +46,13 @@ const slides = [
     image: '/hero/lables_1.png',
   },
   {
+    id: 15,
+    preTitle: 'EXQUISITE BUTTONS',
+    title: 'The Perfect\nFinishing\nTouch',
+    description: 'Beautifully crafted buttons that add a touch of elegance to any garment.',
+    image: '/products/buttons/4.jpg',
+  },
+  {
     id: 9,
     preTitle: 'RELIABLE ZIPS',
     title: 'Seamless\nand\nSecure',
@@ -102,6 +109,7 @@ const slides = [
     description: 'Durable and stylish cord tips that provide the perfect finish to any drawcord or shoelace.',
     image: '/hero/tips.png',
   },
+ 
 ];
 
 const HeroSection = () => {
