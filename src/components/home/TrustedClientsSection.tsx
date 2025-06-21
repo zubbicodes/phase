@@ -49,10 +49,10 @@ const TrustedClientsSection = () => {
   ];
 
   return (
-    <section className="relative py-20 bg-gray-900 overflow-hidden px-8 sm:px-10 lg:px-10">
+    <section className="relative py-20 bg-gray-900 overflow-hidden px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto">
         <div className="flex flex-col gap-10">
-          <h2 className="text-xl md:text-3xl md:text-5xl tracking-tighter lg:max-w-xl font-regular text-left text-white">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tighter lg:max-w-xl font-regular text-left text-white">
             Trusted by hundreds of businesses worldwide
           </h2>
           <Carousel 
@@ -65,8 +65,8 @@ const TrustedClientsSection = () => {
           >
             <CarouselContent>
               {clients.map((client, index) => (
-                <CarouselItem className="basis-1/4 lg:basis-1/6" key={index}>
-                  <div className="flex rounded-md aspect-square bg-white/10 items-center justify-center p-6">
+                <CarouselItem className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/6" key={index}>
+                  <div className="flex rounded-md aspect-square bg-white/10 items-center justify-center p-4 md:p-6">
                     <img
                       src={client.logo}
                       alt={client.name}

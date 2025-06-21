@@ -3,33 +3,25 @@ import ParallaxCarousel from '../../components/ui/ParallaxCarousel';
 
 const slides = [
   {
-    id: 1,
-    preTitle: 'ADSONS INNOVATION',
-    title: 'Engineered\nfor Peak\nPerformance',
-    description: 'Discover our advanced textiles, crafted for durability, comfort, and unparalleled performance in any condition.',
-    image: '/hero/fabric_1.png',
+    id: 16,
+    preTitle: 'POLYESTER KNITTED ELASTIC',
+    title: 'Flexible\nand\nDurable',
+    description: 'Our polyester knitted elastics offer superior flexibility and durability for a wide range of applications.',
+    image: '/hero/elastic_.png',
   },
-  {
-    id: 4,
-    preTitle: 'QUALITY ASSURANCE',
-    title: 'Excellence\nin Every\nThread',
-    description: 'With a focus on quality, our jacquard fabrics offer superior feel and long-lasting durability for any application.',
-    image: '/hero/fabric_4.jpg',
-  },
-  {
-    id: 2,
-    preTitle: 'SUSTAINABLE SOLUTIONS',
-    title: 'Weaving a\nGreener\nTomorrow',
-    description: 'Our commitment to sustainability is woven into every fiber, with eco-friendly materials and responsible manufacturing.',
-    image: '/hero/fabric_2.jpg',
-  },
- 
   {
     id: 6,
-    preTitle: 'VERSATILE ELASTICS',
+    preTitle: 'JEQUARD ELASTICS',
     title: 'Superior\nStretch and\nRecovery',
     description: 'High-performance elastics that offer unmatched flexibility and durability for any application.',
     image: '/hero/ads_elastic.png',
+  },
+  {
+    id: 12,
+    preTitle: 'INNOVATIVE TAPES',
+    title: 'Versatility\nin Every\nWeave',
+    description: 'A wide range of tapes designed for strength, flexibility, and aesthetic appeal in any application.',
+    image: '/hero/webbing.jpg',
   },
   {
     id: 7,
@@ -39,11 +31,25 @@ const slides = [
     image: '/products/cords/2.jpg',
   },
   {
+    id: 14,
+    preTitle: 'PERFECT FINISHES',
+    title: 'The Tip\nof\nPerfection',
+    description: 'Durable and stylish cord tips that provide the perfect finish to any drawcord or shoelace.',
+    image: '/hero/tips.png',
+  },
+  {
     id: 8,
     preTitle: 'CUSTOM LABELS',
     title: 'The Finishing\nTouch of\nBranding',
     description: 'High-quality labels that provide a premium finish and lasting brand identity.',
-    image: '/hero/lables_1.png',
+    image: '/hero/lables_2.png',
+  },
+  {
+    id: 11,
+    preTitle: 'SEWING THREAD ',
+    title: 'The               Foundation\nof\nQuality',
+    description: 'High-quality yarn that provides the perfect base for creating exceptional textiles.',
+    image: '/hero/thread_1.jpg',
   },
   {
     id: 15,
@@ -52,6 +58,14 @@ const slides = [
     description: 'Beautifully crafted buttons that add a touch of elegance to any garment.',
     image: '/products/buttons/4.jpg',
   },
+  {
+    id: 17,
+    preTitle: 'COCONUT BUTTONS',
+    title: 'Natural\nand\nStylish',
+    description: 'Choose our coconut buttons for an eco-friendly and stylish finish to your garments.',
+    image: '/hero/coconut.png',
+  },
+
   {
     id: 9,
     preTitle: 'RELIABLE ZIPS',
@@ -67,33 +81,47 @@ const slides = [
     image: '/hero/slider.jpg',
   },
   {
-    id: 11,
-    preTitle: 'PREMIUM YARN',
-    title: 'The               Foundation\nof\nQuality',
-    description: 'High-quality yarn that provides the perfect base for creating exceptional textiles.',
-    image: '/hero/thread_1.jpg',
+    id: 18,
+    preTitle: 'HOOKS AND LOOPS',
+    title: 'Secure\nand\nReliable',
+    description: 'High-quality hooks and loops for secure and reliable fastening solutions.',
+    image: '/hero/hooks.png',
   },
   {
-    id: 12,
-    preTitle: 'INNOVATIVE TAPES',
-    title: 'Versatility\nin Every\nWeave',
-    description: 'A wide range of tapes designed for strength, flexibility, and aesthetic appeal in any application.',
-    image: '/products/tapes/6.jpg',
+    id: 19,
+    preTitle: 'DURABLE WORKWEAR FABRICS',
+    title: 'Built\nto\nLast',
+    description: 'Our workwear fabrics are designed for durability and comfort in the toughest environments.',
+    image: '/hero/workwear_1.png',
   },
   {
-    id: 3,
-    preTitle: 'CUTTING-EDGE DESIGN',
-    title: 'Where Style\nMeets\nFunctionality',
-    description: 'Explore our versatile range of tapes, trims, and elastics that provide strength, flexibility, and aesthetic appeal.',
-    image: '/hero/fabric_3.png',
+    id: 21,
+    preTitle: 'CAMOUFLAGE FABRICS',
+    title: 'Blend\nin with\nStyle',
+    description: 'High-performance camouflage fabrics for tactical and fashion applications.',
+    image: '/hero/camo.jpg',
+  },
+  {
+    id: 20,
+    preTitle: 'VERSATILE POLYESTER FABRICS',
+    title: 'Performance\nand\nStyle',
+    description: 'Discover our range of polyester fabrics, combining performance, durability, and style.',
+    image: '/hero/fabric_1.png',
   },
   
   {
-    id: 5,
-    preTitle: 'ADVANCED TECHNOLOGY',
-    title: 'The Future\nof\nFabric',
-    description: 'We leverage the latest technology to create innovative textiles that are changing the future of the industry.',
-    image: '/hero/fabric_5.jpg',
+    id: 22,
+    preTitle: 'SPECIAL FINISHES',
+    title: 'Advanced\nFabric\nTreatments',
+    description: 'Featuring HeiQ Pure, our silver-based antimicrobial odor control treatment for ultimate freshness and hygiene.',
+    image: '/hero/fabric_6.jpg',
+  },
+  {
+    id: 4,
+    preTitle: 'QUALITY ASSURANCE',
+    title: 'Excellence\nin Every\nThread',
+    description: 'With a focus on quality, our jacquard fabrics offer superior feel and long-lasting durability for any application.',
+    image: '/hero/fabric_4.jpg',
   },
   {
     id: 13,
@@ -103,12 +131,16 @@ const slides = [
     image: '/hero/ads_fabric.png',
   },
   {
-    id: 14,
-    preTitle: 'PERFECT FINISHES',
-    title: 'The Tip\nof\nPerfection',
-    description: 'Durable and stylish cord tips that provide the perfect finish to any drawcord or shoelace.',
-    image: '/hero/tips.png',
+    id: 2,
+    preTitle: 'SUSTAINABLE SOLUTIONS',
+    title: 'Weaving a\nGreener\nTomorrow',
+    description: 'Our commitment to sustainability is woven into every fiber, with eco-friendly materials and responsible manufacturing.',
+    image: '/hero/fabric_2.jpg',
   },
+
+  
+
+  
  
 ];
 

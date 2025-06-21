@@ -10,12 +10,21 @@ import {
   Box, 
   CheckCircle2, 
   ClipboardCheck,
-  ArrowRight
+  ArrowRight,
+  Search
 } from 'lucide-react';
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "../components/ui/carousel"
+import Autoplay from "embla-carousel-autoplay"
 
 const Workflow = () => {
   const workflowSteps = [
-    {
+    {   
       title: "Raw Material Selection",
       description: "Carefully selecting high-quality raw materials that meet our strict standards",
       icon: Package,
@@ -31,7 +40,7 @@ const Workflow = () => {
       title: "Production Process",
       description: "State-of-the-art manufacturing with precision and care",
       icon: Factory,
-      image: "/workflow/8.JPG",
+      image: ["/workflow/20.png", "/workflow/18.jpg", "/workflow/7.jpeg", "/workflow/8.JPG"],
       details: [
         "Automated production lines",
         "Quality control checkpoints",
@@ -64,15 +73,27 @@ const Workflow = () => {
       ]
     },
     {
+      title: "Metal Detection",
+      description: "Advanced metal detection technology ensuring product safety",
+      icon: Search,
+      image: "/workflow/md.jpeg",
+      details: [
+        "High-sensitivity metal detection systems",
+        "Multi-frequency scanning technology",
+        "Automatic rejection of contaminated products",
+        "Comprehensive safety compliance"
+      ]
+    },
+    {
       title: "Final Inspection",
       description: "Thorough final check before shipping",
       icon: ClipboardCheck,
       image: "/workflow/18.png",
       details: [
-        "Matel Detection & Quality Check",
-        "Documentation review",
-        "Order accuracy check",
-        "Packaging integrity"
+        "Quality Check & Documentation review",
+        "Order accuracy verification",
+        "Packaging integrity inspection",
+        "Final safety assessment"
       ]
     },
     {
@@ -147,11 +168,34 @@ const Workflow = () => {
                   <div className="md:w-1/2 flex justify-center items-center relative z-10">
                     <Tilt rotationFactor={10} springOptions={{ stiffness: 30, damping: 8, mass: 0.4 }} className="w-full max-w-xl">
                       <div className="relative group">
-                        <img
-                          src={step.image}
-                          alt={step.title}
-                          className="w-full h-[420px] md:h-[500px] object-cover rounded-3xl shadow-2xl border-4 border-blue-700/30 group-hover:scale-105 transition-transform duration-500"
-                        />
+                      {Array.isArray(step.image) ? (
+                          <Carousel 
+                          plugins={[
+                            Autoplay({
+                              delay: 3000,
+                            }),
+                          ]}
+                          
+                          className="w-full max-w-xl">
+                          <CarouselContent>
+                            {step.image.map((imgSrc, i) => (
+                              <CarouselItem key={i}>
+                                <img
+                                  src={imgSrc}
+                                  alt={`${step.title} ${i + 1}`}
+                                  className="w-full h-[420px] md:h-[500px] object-cover rounded-3xl shadow-2xl border-4 border-blue-700/30 group-hover:scale-105 transition-transform duration-500"
+                                />
+                              </CarouselItem>
+                            ))}
+                          </CarouselContent>
+                        </Carousel>
+                        ) : (
+                          <img
+                            src={step.image}
+                            alt={step.title}
+                            className="w-full h-[420px] md:h-[500px] object-cover rounded-3xl shadow-2xl border-4 border-blue-700/30 group-hover:scale-105 transition-transform duration-500"
+                          />
+                        )}
                         <Spotlight className="z-20 from-blue-400/40 via-blue-200/10 to-transparent blur-2xl" size={320} />
                       </div>
                     </Tilt>

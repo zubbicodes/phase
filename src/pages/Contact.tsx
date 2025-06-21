@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const Contact = () => {
   return (
@@ -48,6 +49,12 @@ const Contact = () => {
             <div>
               <h3 className="text-2xl font-semibold mb-2">Phone</h3>
               <a href="tel:041-5482001" className="text-accent-color hover:underline text-lg">041-5482001</a>
+            </div>
+            <div className="flex items-center space-x-4">
+              <h3 className="text-2xl font-semibold">Whatsapp</h3>
+              <a href="https://wa.me/923008662025" target="_blank" rel="noopener noreferrer" className="text-accent-color hover:underline text-lg">
+                <FaWhatsapp size={32} />
+              </a>
             </div>
           </motion.div>
           {/* Map */}

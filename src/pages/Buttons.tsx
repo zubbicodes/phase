@@ -25,8 +25,8 @@ const seriesData = [
     description: 'Elegant shell buttons with a unique, iridescent finish.',
   },
   {
-    name: 'Horn Buttons',
-    image: '/products/buttons/0.jpg',
+    name: 'Coconut  Buttons',
+    image: '/products/buttons/0.jpeg',
     description: 'Premium horn buttons for a sophisticated and luxurious touch.',
   },
   {
