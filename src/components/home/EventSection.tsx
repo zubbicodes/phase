@@ -5,7 +5,7 @@ import { Spotlight } from "../ui/spotlight";
 
 const events = [
   {
-    title: "2024 FASHION EXPO",
+    title: "2023 FASHION EXPO",
     date: "October 18, 2024",
     image: "/events/1.jpeg",
     description: "A week of sustainable fashion innovation and networking. Industry leaders gathered to discuss cutting-edge sustainable practices and shape the future of fashion manufacturing.",

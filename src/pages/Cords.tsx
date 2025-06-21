@@ -45,9 +45,9 @@ const seriesData = [
     description: 'Refined and thin multi-color reflective yarn to present reflective aesthetics and can reflect light coming from any angle.',
   },
   {
-    name: 'Screen | Sublimation Print Series',
-    image: '/products/cords/11.jpg',
-    description: 'Delicate screen printed logos or sublimation printed pattern deliver the diversity of cord.',
+    name: 'High-Quality Braided Cords ',
+    image: '/products/cords/12.png',
+    description: ' Dyed fibers and structured weaving to achieve their appearance.',
   },
 ];
 

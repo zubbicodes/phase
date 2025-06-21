@@ -77,7 +77,13 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex flex-col items-center justify-center mt-20">
+        <div className="flex flex-col items-center gap-1 mb-4">
+            <span className="text-s text-gray-400">ADSONS GLOBAL PRIVATE LIMITED</span>
+            <span className="text-s text-gray-400">ADSONS GLOBAL</span>
+            <span className="text-s text-gray-400">ADSONS ENTERPRISES</span>
+          </div>
           <span className="text-5xl font-bold text-white tracking-tight mb-8">ADSONS GROUP OF INDUSTRIES</span>
+          
         </div>
         <div className="flex flex-col md:flex-row md:justify-between items-center mt-12 border-t border-gray-800 pt-8 gap-6">
           <span className="text-xs text-gray-500 mt-2 md:mt-0">© {new Date().getFullYear()} ADSONS. All rights reserved.</span>

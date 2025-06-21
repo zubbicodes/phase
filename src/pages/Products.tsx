@@ -12,7 +12,7 @@ const Products = () => {
     { name: 'Labels', href: '#', image: '/hero/lables_1.png', description: 'Customizable labels for branding and product information.' },
     { name: 'Yarn', href: '#', image: '/hero/yarn.jpeg', description: 'High-quality yarn for knitting and weaving.' },
     { name: 'Zipper - Slider', href: '#', image: '/hero/slider.jpg', description: 'High-quality zips for shirts and bags.' },
-    { name: 'Workwear Fabrics', href: '#', image: '/hero/workwear_3.png', description: 'Designed for durability and comfort in the toughest environments.' },
+    { name: 'Workwear Fabrics', href: '#', image: '/hero/workwear.png', description: 'Designed for durability and comfort in the toughest environments.' },
   ];
 
   return (

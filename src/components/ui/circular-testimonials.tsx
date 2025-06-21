@@ -31,6 +31,8 @@ interface FontSizes {
 interface CircularTestimonialsProps {
   testimonials: Testimonial[];
   autoplay?: boolean;
+  autoplayInterval?: number;
+  transitionDuration?: number;
   colors?: Colors;
   fontSizes?: FontSizes;
 }
@@ -49,6 +51,8 @@ function calculateGap(width: number) {
 export const CircularTestimonials = ({
   testimonials,
   autoplay = true,
+  autoplayInterval = 5000,
+  transitionDuration = 0.8,
   colors = {},
   fontSizes = {},
 }: CircularTestimonialsProps) => {
@@ -90,17 +94,28 @@ export const CircularTestimonials = ({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Helper to start autoplay interval
+  const startAutoplay = useCallback(() => {
+    if (autoplay && autoplayIntervalRef.current === null) {
+      autoplayIntervalRef.current = setInterval(() => {
+        setActiveIndex((prev) => (prev + 1) % testimonialsLength);
+      }, autoplayInterval);
+    }
+  }, [autoplay, testimonialsLength, autoplayInterval]);
+
   // Autoplay
   useEffect(() => {
     if (autoplay) {
+      if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
       autoplayIntervalRef.current = setInterval(() => {
         setActiveIndex((prev) => (prev + 1) % testimonialsLength);
-      }, 5000);
+      }, autoplayInterval);
     }
     return () => {
       if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
+      autoplayIntervalRef.current = null;
     };
-  }, [autoplay, testimonialsLength]);
+  }, [autoplay, testimonialsLength, autoplayInterval]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -117,11 +132,15 @@ export const CircularTestimonials = ({
   const handleNext = useCallback(() => {
     setActiveIndex((prev) => (prev + 1) % testimonialsLength);
     if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
-  }, [testimonialsLength]);
+    autoplayIntervalRef.current = null;
+    startAutoplay();
+  }, [testimonialsLength, startAutoplay]);
   const handlePrev = useCallback(() => {
     setActiveIndex((prev) => (prev - 1 + testimonialsLength) % testimonialsLength);
     if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
-  }, [testimonialsLength]);
+    autoplayIntervalRef.current = null;
+    startAutoplay();
+  }, [testimonialsLength, startAutoplay]);
 
   // Compute transforms for each image (always show 3: left, center, right)
   function getImageStyle(index: number): React.CSSProperties {
@@ -138,7 +157,7 @@ export const CircularTestimonials = ({
         opacity: 1,
         pointerEvents: "auto",
         transform: `translateX(0px) translateY(0px) scale(1) rotateY(0deg)`,
-        transition: "all 0.8s cubic-bezier(.4,2,.3,1)",
+        transition: `all ${transitionDuration}s cubic-bezier(.4,2,.3,1)`,
       };
     }
     if (isLeft) {
@@ -147,7 +166,7 @@ export const CircularTestimonials = ({
         opacity: 1,
         pointerEvents: "auto",
         transform: `translateX(-${gap}px) translateY(-${maxStickUp}px) scale(0.85) rotateY(15deg)`,
-        transition: "all 0.8s cubic-bezier(.4,2,.3,1)",
+        transition: `all ${transitionDuration}s cubic-bezier(.4,2,.3,1)`,
       };
     }
     if (isRight) {
@@ -156,7 +175,7 @@ export const CircularTestimonials = ({
         opacity: 1,
         pointerEvents: "auto",
         transform: `translateX(${gap}px) translateY(-${maxStickUp}px) scale(0.85) rotateY(-15deg)`,
-        transition: "all 0.8s cubic-bezier(.4,2,.3,1)",
+        transition: `all ${transitionDuration}s cubic-bezier(.4,2,.3,1)`,
       };
     }
     // Hide all other images
@@ -164,7 +183,7 @@ export const CircularTestimonials = ({
       zIndex: 1,
       opacity: 0,
       pointerEvents: "none",
-      transition: "all 0.8s cubic-bezier(.4,2,.3,1)",
+      transition: `all ${transitionDuration}s cubic-bezier(.4,2,.3,1)`,
     };
   }
 

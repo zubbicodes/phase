@@ -40,7 +40,7 @@ const Workflow = () => {
       title: "Production Process",
       description: "State-of-the-art manufacturing with precision and care",
       icon: Factory,
-      image: ["/workflow/20.png", "/workflow/18.jpg", "/workflow/7.jpeg", "/workflow/8.JPG"],
+      image: ["/workflow/20.png","/workflow/cords.png", "/workflow/18.jpg", "/workflow/7.jpeg",  "/workflow/20.jpeg"],
       details: [
         "Automated production lines",
         "Quality control checkpoints",
@@ -121,7 +121,7 @@ const Workflow = () => {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: "url('/workflow/9.JPG')",
-            filter: "brightness(0.3)"
+            filter: "brightness(0.6)"
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black opacity-80"></div>

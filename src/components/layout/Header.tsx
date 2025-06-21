@@ -8,6 +8,7 @@ const Header = () => {
   const closeTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const navigation = [
+    { name: 'Home', href: '/' },
     { name: 'Products', href: '/products' },
     { name: 'Workflow', href: '/workflow' },
     { name: 'Certifications', href: '/certifications' },

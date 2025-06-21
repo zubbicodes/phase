@@ -65,7 +65,9 @@ const CertificationsSection = () => {
           <div className="w-full max-w-4xl">
             <CircularTestimonials
               testimonials={certificates}
-              autoplay={false}
+              autoplay={true}
+              autoplayInterval={2000}
+              transitionDuration={0.5}
               colors={{
                 name: "#fff",
                 designation: "#e1e1e1",
