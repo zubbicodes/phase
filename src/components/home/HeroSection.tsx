@@ -51,6 +51,14 @@ const slides = [
     description: 'High-quality yarn that provides the perfect base for creating exceptional textiles.',
     image: '/hero/thread_1.jpg',
   },
+    // New slide for High Quality DTY Yarns
+    {
+      id: 23,
+      preTitle: 'HIGH QUALITY DTY YARNS',
+      title: 'Premium\nDTY Yarns',
+      description: 'Our DTY (Draw Textured Yarn) offers superior strength, softness, and versatility for a wide range of textile applications.',
+      image: '/hero/dty_yarn.png',
+    },
   {
     id: 15,
     preTitle: 'EXQUISITE BUTTONS',
@@ -138,10 +146,7 @@ const slides = [
     image: '/hero/fabric_2.jpg',
   },
 
-  
 
-  
- 
 ];
 
 const HeroSection = () => {

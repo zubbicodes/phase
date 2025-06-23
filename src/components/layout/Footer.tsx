@@ -89,6 +89,7 @@ const Footer = () => {
             <span className="text-s text-gray-400">ADSONS GLOBAL PRIVATE LIMITED</span>
             <span className="text-s text-gray-400">ADSONS GLOBAL</span>
             <span className="text-s text-gray-400">ADSONS ENTERPRISES</span>
+            <span className="text-s text-gray-400">AIMS INTERNATIONAL</span>
           </div>
           <span className="text-5xl font-bold text-white tracking-tight mb-8">ADSONS GROUP OF INDUSTRIES</span>
           
