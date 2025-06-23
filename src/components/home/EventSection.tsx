@@ -2,6 +2,7 @@
 
 import { Tilt } from "../ui/tilt";
 import { Spotlight } from "../ui/spotlight";
+import { Link } from "react-router-dom";
 
 const events = [
   {
@@ -92,8 +93,10 @@ const EventSection = () => {
                 <div className='absolute bottom-8 left-8 p-4 text-white'>
                   <h3 className='font-bold text-3xl md:text-4xl mb-4'>{mainEvent.title}</h3>
                   <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full inline-flex items-center">
-                    Read More
-                    <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    <Link to="/events" className="flex items-center">
+                      Read More
+                      <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </Link>
                   </button>
                 </div>
               </div>

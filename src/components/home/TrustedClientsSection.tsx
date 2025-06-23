@@ -1,5 +1,5 @@
 "use client";
-
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {
   Carousel,
@@ -50,6 +50,7 @@ const TrustedClientsSection = () => {
 
   return (
     <section className="relative py-20 bg-gray-900 overflow-hidden px-4 sm:px-6 lg:px-8">
+      
       <div className="container mx-auto">
         <div className="flex flex-col gap-10">
           <h2 className="text-3xl md:text-4xl lg:text-5xl tracking-tighter lg:max-w-xl font-regular text-left text-white">
@@ -63,6 +64,7 @@ const TrustedClientsSection = () => {
               align: "start",
             }}
           >
+            
             <CarouselContent>
               {clients.map((client, index) => (
                 <CarouselItem className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/6" key={index}>
@@ -84,6 +86,7 @@ const TrustedClientsSection = () => {
         <div className="absolute inset-0 before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_bottom_center,#8350e8,transparent_70%)] before:opacity-40" />
         <div className="absolute -left-1/2 top-1/2 aspect-[1/0.7] z-10 w-[200%] rounded-[100%] border-t border-zinc-900/20 dark:border-white/20 bg-white dark:bg-zinc-900" />
       </div>
+      
     </section>
   );
 };

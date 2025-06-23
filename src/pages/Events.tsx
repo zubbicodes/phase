@@ -9,10 +9,10 @@ const Events = () => {
   const events = [
     {
       title: "2024 FASHION EXPO",
-      date: "October 18, 2024",
+      date: "October 18, 2023",
       image: "/events/1.jpeg",
       description: "A week of sustainable fashion innovation and networking. Industry leaders gathered to discuss cutting-edge sustainable practices and shape the future of fashion manufacturing.",
-      location: "Taipei, Taiwan",
+      location: "Faisalabad, Pakistan",
       type: "Exhibition",
       highlights: [
         "Sustainable fashion showcase",
