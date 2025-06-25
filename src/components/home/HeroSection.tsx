@@ -151,7 +151,7 @@ const slides = [
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full h-screen">
+    <section className="relative w-full h-[calc(100vh-4rem)]">
       <ParallaxCarousel slides={slides} />
     </section>
   );
