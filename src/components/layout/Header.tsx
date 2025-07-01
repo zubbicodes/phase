@@ -23,25 +23,28 @@ const Header = () => {
     { name: 'Tapes', href: '/products/tapes' },
     { name: 'Buttons', href: '/products/buttons' },
     { name: 'Labels', href: '' },
+    { name: 'Zipper', href: '' },
     {
       name: 'Fabrics',
       href: '',
       children: [
         { name: 'Knitted', href: '' },
-        { name: 'Woven', href: '' },
-        { name: 'Non-woven', href: '' },
+        { name: 'Workwear', href: '' },
+        { name: 'Microfiber', href: '' },
+        { name: 'Camouflage', href: '' },
+        { name: 'Special Finishes', href: '' },
       ],
     },
     {
       name: 'Yarn',
       href: '',
       children: [
-        { name: 'Cotton', href: '' },
-        { name: 'Polyester', href: '' },
-        { name: 'Blended', href: '' },
+        { name: 'DTY Yarns', href: '' },
+        { name: 'Dyed Yarns', href: '' },
+        { name: 'Recycled Yarns', href: '' },
       ],
     },
-    { name: 'Zipper', href: '' },
+    
   ];
 
   // Dropdown handlers with delay

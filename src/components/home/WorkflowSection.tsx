@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useInView } from 'react-intersection-observer';
 
 interface Slide {
   id: number;
@@ -14,17 +15,19 @@ interface Slide {
 interface WorkflowCarouselProps {
   slides: Slide[];
   interval?: number;
+  autoloop?: boolean;
 }
 
-const WorkflowCarousel: React.FC<WorkflowCarouselProps> = ({ slides, interval = 5000 }) => {
+const WorkflowCarousel: React.FC<WorkflowCarouselProps> = ({ slides, interval = 5000, autoloop = true }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
+    if (!autoloop) return;
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
     }, interval);
     return () => clearInterval(timer);
-  }, [slides.length, interval]);
+  }, [slides.length, interval, autoloop]);
 
   const currentSlide = slides[currentIndex];
 
@@ -115,8 +118,8 @@ const WorkflowCarousel: React.FC<WorkflowCarouselProps> = ({ slides, interval = 
 const workflowSlides = [
   {
     id: 1,
-    preTitle: 'RAW MATERIAL SELECTION',
-    title: 'Quality\nfrom the\nStart',
+    preTitle: 'QUALITY FROM THE START',
+    title: 'Raw Material\nSelection',
     description: 'Carefully selecting high-quality raw materials that meet our strict standards for excellence.',
     image: '/workflow/12.JPG',
   },
@@ -128,6 +131,27 @@ const workflowSlides = [
     image: '/workflow/20.png',
   },
   {
+    id: 8,
+    preTitle: 'JACQUARD ELASTICS MACHINES',
+    title: 'Precision\nin Every\nWeave',
+    description: 'Advanced Jacquard machines producing high-quality elastics with intricate patterns and superior stretch.',
+    image: '/workflow/18.jpg',
+  },
+  {
+    id: 9,
+    preTitle: 'CORDS MACHINES',
+    title: 'Strength\nand\nFlexibility',
+    description: 'State-of-the-art cords machines delivering durable and versatile cords for various applications.',
+    image: '/workflow/cords.png',
+  },
+  {
+    id: 10,
+    preTitle: 'TAPES MACHINES',
+    title: 'Versatile\nTape\nProduction',
+    description: 'Modern tape machines ensuring consistent quality and a wide range of tape products.',
+    image: '/workflow/7.jpeg',
+  },
+  {
     id: 3,
     preTitle: 'QUALITY ASSURANCE',
     title: 'Rigorous\nTesting and\nControl',
@@ -137,14 +161,14 @@ const workflowSlides = [
   {
     id: 4,
     preTitle: 'PACKAGING',
-    title: 'Secure and\nSustainable\nSolutions',
+    title: 'Secure and\nSustainable\nPackaging',
     description: 'Secure and sustainable packaging solutions with eco-friendly materials and custom solutions.',
     image: '/workflow/14.JPG',
   },
   {
     id: 5,
     preTitle: 'METAL DETECTION',
-    title: 'Advanced\nSafety\nTechnology',
+    title: 'Advanced\nMetal Detection\nTechnology',
     description: 'Advanced metal detection technology ensuring product safety with high-sensitivity systems.',
     image: '/workflow/md.jpeg',
   },
@@ -165,10 +189,10 @@ const workflowSlides = [
 ];
 
 const WorkflowSection = () => {
+  const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.2 });
   return (
-    <section className="relative w-full h-[calc(100vh-4rem)] flex flex-col items-center justify-center">
-    
-      <WorkflowCarousel slides={workflowSlides} />
+    <section ref={ref} className="relative w-full h-[calc(100vh-4rem)] flex flex-col items-center justify-center">
+      <WorkflowCarousel slides={workflowSlides} autoloop={inView} />
     </section>
   );
 };

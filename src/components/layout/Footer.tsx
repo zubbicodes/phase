@@ -69,11 +69,11 @@ const Footer = () => {
             <div>Email: <a href="mailto:info@adsonsent.com" className="hover:underline">info@adsonsent.com</a></div>
               <div>
                 <span className="block font-semibold text-sm text-gray-300">Head Office</span>
-                <span className="block text-sm text-gray-400">193-VIP Block, Street No. 2, Canal Park, Faisalabad</span>
+                <span className="block text-sm text-gray-400">193-VIP Block, Canal Park, Faisalabad</span>
               </div>
               <div>
                 <span className="block font-semibold text-sm text-gray-300">Master Unit</span>
-                <span className="block text-sm text-gray-400">Street No. 2, Yaseen Chowk, Jaranwala Road, Faisalabad</span>
+                <span className="block text-sm text-gray-400">Street No. 3, Yaseen Chowk, Jaranwala Road, Faisalabad</span>
               </div>
               
               <div className="flex gap-4 mt-4">

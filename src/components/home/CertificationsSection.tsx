@@ -18,28 +18,27 @@ const certificates = [
     quote: 'Certified for ethical and responsible business practices',
     name: 'SEDEX',
     designation: 'Certification',
-    src: '/certificates/1.png', // <-- update with your actual image path
+    src: '/certificates/1.png', 
   },
   {
     quote: 'Certified for meeting the Global Recycle Standard',
     name: 'GLOBAL RECYCLE STANDARD',
     designation: 'Certification',
-    src: '/certificates/5.png', // <-- update with your actual image path
+    src: '/certificates/5.png', 
   },
   {
     quote: 'Certified for sustainability with the OKEO-TEX',
     name: 'OKKO-TEX®',
     designation: 'Certification',
-    src: '/certificates/madeingreen.png', // <-- update with your actual image path
+    src: '/certificates/madeingreen.png',
   },
   {
     quote: 'Certified for sustainability with the Higg Index',
     name: 'Higgs Index',
     designation: 'Certification',
-    src: '/certificates/2.png', // <-- update with your actual image path
+    src: '/certificates/2.png', 
   },
   
-  // Add more certificates as needed
 ];
 
 const CertificationsSection = () => {
