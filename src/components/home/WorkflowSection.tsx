@@ -166,7 +166,8 @@ const workflowSlides = [
 
 const WorkflowSection = () => {
   return (
-    <section className="relative w-full h-[calc(100vh-4rem)]">
+    <section className="relative w-full h-[calc(100vh-4rem)] flex flex-col items-center justify-center">
+    
       <WorkflowCarousel slides={workflowSlides} />
     </section>
   );

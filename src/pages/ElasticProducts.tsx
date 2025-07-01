@@ -4,6 +4,7 @@ import { Tilt } from '../components/ui/tilt';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Sparkles } from '../components/ui/sparkles';
 import { Sun, ShieldHalf, SunMedium, Recycle, Waves, ArrowLeftRight, Wind, Droplets } from 'lucide-react';
+import StickyScroll from '../components/ui/sticky-scroll';
 
 const elasticProducts = [
   {
@@ -199,154 +200,156 @@ const knitElastic = [
 
 const ElasticProducts = () => {
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Hero Section */}
-      <div className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Sparkles
-            className="w-full h-full"
-            color="#8350e8"
-            background="transparent"
-            density={100}
-          />
+    <StickyScroll>
+      <div className="min-h-screen bg-black text-white">
+        {/* Hero Section */}
+        <div className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <Sparkles
+              className="w-full h-full"
+              color="#8350e8"
+              background="transparent"
+              density={100}
+            />
+          </div>
+          <div className="relative z-10 text-center px-4">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-5xl md:text-7xl font-bold mb-6"
+            >
+              Pre-Shrink Elastic Excellence
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto"
+            >
+              Premium quality elastic solutions for your manufacturing needs
+            </motion.p>
+          </div>
         </div>
-        <div className="relative z-10 text-center px-4">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-5xl md:text-7xl font-bold mb-6"
-          >
-            Pre-Shrink Elastic Excellence
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto"
-          >
-            Premium quality elastic solutions for your manufacturing needs
-          </motion.p>
+
+        {/* Why Choose Our Elastics Section (moved up) */}
+        <div className="bg-gray-900 py-16">
+          <div className="max-w-7xl mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Why Choose Our Elastic Products?
+              </h2>
+              <p className="text-gray-400 max-w-2xl mx-auto">
+                We provide the highest quality elastic solutions with unmatched durability and performance
+              </p>
+            </motion.div>
+
+            {/* Attribute Icons Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-12">
+              {attributes.map((attr, idx) => (
+                <motion.div
+                  key={attr.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: idx * 0.05 }}
+                  viewport={{ once: true }}
+                  className="flex flex-col items-center text-center"
+                >
+                  <div className="mb-3 text-white">{attr.icon}</div>
+                  <span className="font-medium text-base md:text-lg text-white">
+                    {attr.label}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+
+           
+          </div>
         </div>
-      </div>
 
-      {/* Why Choose Our Elastics Section (moved up) */}
-      <div className="bg-gray-900 py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Why Choose Our Elastic Products?
-            </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              We provide the highest quality elastic solutions with unmatched durability and performance
-            </p>
-          </motion.div>
+     
 
-          {/* Attribute Icons Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-12">
-            {attributes.map((attr, idx) => (
-              <motion.div
-                key={attr.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.05 }}
-                viewport={{ once: true }}
-                className="flex flex-col items-center text-center"
-              >
-                <div className="mb-3 text-white">{attr.icon}</div>
-                <span className="font-medium text-base md:text-lg text-white">
-                  {attr.label}
-                </span>
-              </motion.div>
+        {/* --- Essentials Section --- */}
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">The Essentials</h2>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {essentials.map((item, idx) => (
+              <Card key={item.name + idx} className="bg-black/50 border-gray-800 hover:border-gray-700 transition-colors">
+                <Tilt className="h-full">
+                <CardHeader>
+                  <CardTitle className="text-lg md:text-xl">{item.name}</CardTitle>
+                  <CardDescription className="text-gray-400 text-xs md:text-sm">
+                    {item.specs && <span className="block font-semibold">{item.specs}</span>}
+                    {item.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="aspect-video relative rounded-lg overflow-hidden mb-2">
+                    <img src={item.image} alt={item.name} className="object-cover w-full h-full" />
+                  </div>
+                </CardContent>
+                </Tilt>
+              </Card>
             ))}
           </div>
+        </div>
 
-         
+        {/* --- Woven Elastic Section --- */}
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Woven Elastic</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {wovenElastic.map((item, idx) => (
+              <Card key={item.name + idx} className="bg-black/50 border-gray-800 hover:border-gray-700 transition-colors">
+                <Tilt className="h-full">
+                <CardHeader>
+                  <CardTitle className="text-lg md:text-xl">{item.name}</CardTitle>
+                  <CardDescription className="text-gray-400 text-xs md:text-sm">
+                    {item.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="aspect-video relative rounded-lg overflow-hidden mb-2">
+                    <img src={item.image} alt={item.name} className="object-cover w-full h-full" />
+                  </div>
+                </CardContent>
+                </Tilt>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* --- Knit Elastic Section --- */}
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Knit Elastic</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {knitElastic.map((item, idx) => (
+              <Card key={item.name + idx} className="bg-black/50 border-gray-800 hover:border-gray-700 transition-colors">
+                <Tilt className="h-full">
+                <CardHeader>
+                  <CardTitle className="text-lg md:text-xl">{item.name}</CardTitle>
+                  <CardDescription className="text-gray-400 text-xs md:text-sm">
+                    {item.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="aspect-video relative rounded-lg overflow-hidden mb-2">
+                    <img src={item.image} alt={item.name} className="object-cover w-full h-full" />
+                  </div>
+                </CardContent>
+                </Tilt>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
-
-   
-
-      {/* --- Essentials Section --- */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">The Essentials</h2>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {essentials.map((item, idx) => (
-            <Card key={item.name + idx} className="bg-black/50 border-gray-800 hover:border-gray-700 transition-colors">
-              <Tilt className="h-full">
-              <CardHeader>
-                <CardTitle className="text-lg md:text-xl">{item.name}</CardTitle>
-                <CardDescription className="text-gray-400 text-xs md:text-sm">
-                  {item.specs && <span className="block font-semibold">{item.specs}</span>}
-                  {item.description}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="aspect-video relative rounded-lg overflow-hidden mb-2">
-                  <img src={item.image} alt={item.name} className="object-cover w-full h-full" />
-                </div>
-              </CardContent>
-              </Tilt>
-            </Card>
-          ))}
-        </div>
-      </div>
-
-      {/* --- Woven Elastic Section --- */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Woven Elastic</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {wovenElastic.map((item, idx) => (
-            <Card key={item.name + idx} className="bg-black/50 border-gray-800 hover:border-gray-700 transition-colors">
-              <Tilt className="h-full">
-              <CardHeader>
-                <CardTitle className="text-lg md:text-xl">{item.name}</CardTitle>
-                <CardDescription className="text-gray-400 text-xs md:text-sm">
-                  {item.description}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="aspect-video relative rounded-lg overflow-hidden mb-2">
-                  <img src={item.image} alt={item.name} className="object-cover w-full h-full" />
-                </div>
-              </CardContent>
-              </Tilt>
-            </Card>
-          ))}
-        </div>
-      </div>
-
-      {/* --- Knit Elastic Section --- */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">Knit Elastic</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {knitElastic.map((item, idx) => (
-            <Card key={item.name + idx} className="bg-black/50 border-gray-800 hover:border-gray-700 transition-colors">
-              <Tilt className="h-full">
-              <CardHeader>
-                <CardTitle className="text-lg md:text-xl">{item.name}</CardTitle>
-                <CardDescription className="text-gray-400 text-xs md:text-sm">
-                  {item.description}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="aspect-video relative rounded-lg overflow-hidden mb-2">
-                  <img src={item.image} alt={item.name} className="object-cover w-full h-full" />
-                </div>
-              </CardContent>
-              </Tilt>
-            </Card>
-          ))}
-        </div>
-      </div>
-    </div>
+    </StickyScroll>
   );
 };
 

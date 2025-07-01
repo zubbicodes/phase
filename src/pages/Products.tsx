@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import StickyScroll from '../components/ui/sticky-scroll';
 
 const Products = () => {
   const productsList = [
@@ -16,84 +17,86 @@ const Products = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Hero Section */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black opacity-80"></div>
-        <div className="relative z-10 text-center px-4">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl font-bold mb-6"
-          >
-            Products
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl text-gray-300 max-w-2xl mx-auto"
-          >
-            Discover our comprehensive range of high-quality products, 
-            manufactured with precision and care to meet international standards.
-          </motion.p>
-        </div>
-      </section>
-
-      {/* Products Grid */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {productsList.map((product, index) => (
-              <motion.div
-                key={product.name}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Link to={product.href} className="block bg-gray-900 rounded-2xl overflow-hidden shadow-xl group h-full flex flex-col">
-                  <div className="relative h-64">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300"
-                    />
-                     <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-                  </div>
-                  <div className="p-6 flex-grow flex flex-col">
-                    <h3 className="text-2xl font-bold mb-2 text-white">{product.name}</h3>
-                    <p className="text-gray-300 flex-grow">{product.description}</p>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
+    <StickyScroll>
+      <div className="min-h-screen bg-black text-white">
+        {/* Hero Section */}
+        <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black opacity-80"></div>
+          <div className="relative z-10 text-center px-4">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-5xl md:text-6xl font-bold mb-6"
+            >
+              Products
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-xl text-gray-300 max-w-2xl mx-auto"
+            >
+              Discover our comprehensive range of high-quality products, 
+              manufactured with precision and care to meet international standards.
+            </motion.p>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Quality Assurance Section */}
-      <section className="py-20 bg-gray-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Quality Assured
-            </h2>
-            <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-              Every product undergoes rigorous quality control processes to ensure 
-              they meet the highest standards of excellence and customer satisfaction.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-    </div>
+        {/* Products Grid */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {productsList.map((product, index) => (
+                <motion.div
+                  key={product.name}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Link to={product.href} className="block bg-gray-900 rounded-2xl overflow-hidden shadow-xl group h-full flex flex-col">
+                    <div className="relative h-64">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300"
+                      />
+                       <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+                    </div>
+                    <div className="p-6 flex-grow flex flex-col">
+                      <h3 className="text-2xl font-bold mb-2 text-white">{product.name}</h3>
+                      <p className="text-gray-300 flex-grow">{product.description}</p>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Quality Assurance Section */}
+        <section className="py-20 bg-gray-900">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Quality Assured
+              </h2>
+              <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+                Every product undergoes rigorous quality control processes to ensure 
+                they meet the highest standards of excellence and customer satisfaction.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+      </div>
+    </StickyScroll>
   );
 };
 
