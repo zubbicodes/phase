@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
+  const [mobileSubMenuOpenIdx, setMobileSubMenuOpenIdx] = useState<number | null>(null);
   const closeTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const navigation = [
@@ -21,9 +22,25 @@ const Header = () => {
     { name: 'Cords', href: '/products/cords' },
     { name: 'Tapes', href: '/products/tapes' },
     { name: 'Buttons', href: '/products/buttons' },
-    { name: 'Fabrics', href: '' },
     { name: 'Labels', href: '' },
-    { name: 'Yarn', href: '' },
+    {
+      name: 'Fabrics',
+      href: '',
+      children: [
+        { name: 'Knitted', href: '' },
+        { name: 'Woven', href: '' },
+        { name: 'Non-woven', href: '' },
+      ],
+    },
+    {
+      name: 'Yarn',
+      href: '',
+      children: [
+        { name: 'Cotton', href: '' },
+        { name: 'Polyester', href: '' },
+        { name: 'Blended', href: '' },
+      ],
+    },
     { name: 'Zipper', href: '' },
   ];
 
@@ -84,13 +101,38 @@ const Header = () => {
                         onMouseLeave={handleDropdownMouseLeave}
                       >
                         {productsList.map((prod) => (
-                          <Link
-                            key={prod.name}
-                            to={prod.href}
-                            className="block px-3 py-2 text-gray-200 hover:bg-gray-800 hover:text-white rounded transition-colors duration-150 text-base cursor-right-up"
-                          >
-                            {prod.name}
-                          </Link>
+                          <div key={prod.name} className="relative group">
+                            {prod.children ? (
+                              <>
+                                <Link
+                                  to={prod.href || '#'}
+                                  className="block px-3 py-2 text-gray-200 hover:bg-gray-800 hover:text-white rounded transition-colors duration-150 text-base cursor-right-up flex items-center justify-between"
+                                >
+                                  {prod.name}
+                                  <ChevronDown className="w-4 h-4 ml-1" />
+                                </Link>
+                                {/* Sub-menu */}
+                                <div className="absolute left-full top-0 mt-0 ml-2 w-40 bg-gray-900 rounded-xl shadow-lg py-2 z-50 hidden group-hover:block animate-fade-in">
+                                  {prod.children.map((sub) => (
+                                    <Link
+                                      key={sub.name}
+                                      to={sub.href}
+                                      className="block px-3 py-2 text-gray-200 hover:bg-gray-800 hover:text-white rounded transition-colors duration-150 text-base cursor-right-up"
+                                    >
+                                      {sub.name}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </>
+                            ) : (
+                              <Link
+                                to={prod.href}
+                                className="block px-3 py-2 text-gray-200 hover:bg-gray-800 hover:text-white rounded transition-colors duration-150 text-base cursor-right-up"
+                              >
+                                {prod.name}
+                              </Link>
+                            )}
+                          </div>
                         ))}
                       </div>
                     )}
@@ -146,14 +188,41 @@ const Header = () => {
               </button>
               {productsDropdownOpen && (
                 <div className="mt-1 ml-4 w-40 bg-gray-900 rounded-xl shadow-lg py-2 z-50 animate-fade-in">
-                  {productsList.map((prod) => (
-                    <Link
-                      key={prod.name}
-                      to={prod.href}
-                      className="block px-3 py-2 text-gray-200 hover:bg-gray-800 hover:text-white rounded transition-colors duration-150 text-base cursor-right-up"
-                    >
-                      {prod.name}
-                    </Link>
+                  {productsList.map((prod, idx) => (
+                    <div key={prod.name} className="relative">
+                      {prod.children ? (
+                        <>
+                          <button
+                            type="button"
+                            onClick={() => setMobileSubMenuOpenIdx(mobileSubMenuOpenIdx === idx ? null : idx)}
+                            className="flex items-center w-full px-3 py-2 text-gray-200 hover:bg-gray-800 hover:text-white rounded transition-colors duration-150 text-base cursor-right-up justify-between"
+                          >
+                            {prod.name}
+                            <ChevronDown className="w-4 h-4 ml-1" />
+                          </button>
+                          {mobileSubMenuOpenIdx === idx && (
+                            <div className="ml-4 mt-1 w-36 bg-gray-800 rounded-xl shadow-lg py-2 z-50 animate-fade-in">
+                              {prod.children.map((sub) => (
+                                <Link
+                                  key={sub.name}
+                                  to={sub.href}
+                                  className="block px-3 py-2 text-gray-200 hover:bg-gray-700 hover:text-white rounded transition-colors duration-150 text-base cursor-right-up"
+                                >
+                                  {sub.name}
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </>
+                      ) : (
+                        <Link
+                          to={prod.href}
+                          className="block px-3 py-2 text-gray-200 hover:bg-gray-800 hover:text-white rounded transition-colors duration-150 text-base cursor-right-up"
+                        >
+                          {prod.name}
+                        </Link>
+                      )}
+                    </div>
                   ))}
                 </div>
               )}

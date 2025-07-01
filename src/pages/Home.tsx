@@ -1,5 +1,6 @@
 import React from 'react';
 import HeroSection from '../components/home/HeroSection';
+import WorkflowSection from '../components/home/WorkflowSection';
 import TargetSupplierSection from '../components/home/TargetSupplierSection';
 import CertificationsSection from '../components/home/CertificationsSection';
 import SustainabilitySection from '../components/home/SustainabilitySection';
@@ -13,10 +14,12 @@ const Home = () => {
       <HeroSection />
       <TargetSupplierSection />
       <TrustedClientsSection />
+      <WorkflowSection />
       <CertificationsSection />
       <EventSection />
       <SustainabilitySection />
      
+      
       
     </div>
   );
