@@ -1,38 +1,20 @@
 'use client';
 
-import { useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { useMotionValue } from 'framer-motion';
 import { useEffect, useRef } from 'react';
 
 type SpotlightProps = {
   className?: string;
   size?: number;
-  springOptions?: {
-    stiffness?: number;
-    damping?: number;
-    mass?: number;
-  };
 };
 
 export function Spotlight({
   className = '',
   size = 200,
-  springOptions = {
-    stiffness: 26.7,
-    damping: 4.1,
-    mass: 0.2,
-  },
 }: SpotlightProps) {
   const ref = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-
-  const xSpring = useSpring(x, springOptions);
-  const ySpring = useSpring(y, springOptions);
-
-  const transform = useTransform(
-    [xSpring, ySpring],
-    ([x, y]) => `translate(${x}px, ${y}px)`
-  );
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {

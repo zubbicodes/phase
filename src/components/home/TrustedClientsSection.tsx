@@ -1,5 +1,4 @@
 "use client";
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {
   Carousel,
@@ -10,7 +9,6 @@ import {
 
 const TrustedClientsSection = () => {
   const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     if (!api) {

@@ -3,32 +3,8 @@ import { motion } from 'framer-motion';
 import { Tilt } from '../components/ui/tilt';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Sparkles } from '../components/ui/sparkles';
-import { Sun, ShieldHalf, SunMedium, Recycle, Waves, ArrowLeftRight, Wind, Droplets } from 'lucide-react';
+import { Sun, ShieldHalf, SunMedium, Recycle, ArrowLeftRight, Droplets } from 'lucide-react';
 import StickyScroll from '../components/ui/sticky-scroll';
-
-const elasticProducts = [
-  {
-    id: 1,
-    name: 'Elastic Band',
-    description: 'High-quality elastic band for various industrial applications',
-    features: ['Durable', 'Flexible', 'Weather-resistant'],
-    image: '/products/elastic-band.jpg'
-  },
-  {
-    id: 2,
-    name: 'Elastic Cord',
-    description: 'Premium elastic cord for specialized manufacturing needs',
-    features: ['High tensile strength', 'Customizable', 'Long-lasting'],
-    image: '/products/elastic-cord.jpg'
-  },
-  {
-    id: 3,
-    name: 'Elastic Webbing',
-    description: 'Industrial-grade elastic webbing for heavy-duty applications',
-    features: ['Reinforced', 'Versatile', 'Cost-effective'],
-    image: '/products/elastic/buttonhole-elastic.jpg'
-  }
-];
 
 const attributes = [
   {

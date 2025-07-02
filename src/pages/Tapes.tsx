@@ -28,54 +28,6 @@ const essentials = [
   }
 ];
 
-const jacquardPatterns = [
-  {
-    name: 'Jacquard Patterns',
-    image: '/products/tapes/4.jpg',
-    description: 'Multi-color delicate jacquard artwork and dazzling tape brings soft, hand feel. Patterns can be customized according to design and requirement.'
-  }
-];
-
-const eyeletWebbing = [
-  {
-    name: 'Eyelet Webbing',
-    image: '/products/cords/eyelet-webbing.jpg',
-    description: 'Iconic lacing system. Multi-functional webbing system for apparel and footwear. Spacing and structure can be customized.'
-  }
-];
-
-const dragonflyWebbing = [
-  {
-    name: 'Dragonfly Webbing',
-    image: '/products/cords/dragonfly-webbing.jpg',
-    description: 'Quilt layer textile structure. Multi-purpose tape & applications with enhanced webbing. Application: garment, footwear, bags, laces, and luggage straps.'
-  }
-];
-
-const bSwanWebbing = [
-  {
-    name: 'B-Swan Wide-Narrow Webbing',
-    image: '/products/cords/b-swan-webbing.jpg',
-    description: 'One piece narrow and wide ribbon within features unique patented patterns. Width can be customized.'
-  }
-];
-
-const multiStrandKnit = [
-  {
-    name: 'Multi-Strand Knit Tape',
-    image: '/products/cords/multi-strand-knit.jpg',
-    description: 'Patented multi-strand knit textile structure. Unique multi-strand braiding processes to present handcrafted aesthetics. Quantity, width, and length of strands can be customized.'
-  }
-];
-
-const spartaStrap = [
-  {
-    name: 'The Sparta Strap-Net Shoe Upper',
-    image: '/products/cords/sparta-strap.jpg',
-    description: 'SPARTA stripe upper net is made compact with various woven and knit tapes by fusing, sewing, and secondary. Creates zoned functions and solves unnecessary materials at the same structure.'
-  }
-];
-
 const Tapes = () => {
   return (
     <StickyScroll>

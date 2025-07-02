@@ -2,7 +2,7 @@
 import { ReactLenis } from 'lenis/react';
 import React, { forwardRef, PropsWithChildren } from 'react';
 
-type StickyScrollProps = PropsWithChildren<{}>;
+type StickyScrollProps = PropsWithChildren<object>;
 
 const StickyScroll = forwardRef<HTMLElement, StickyScrollProps>(({ children }, ref) => {
   return (
