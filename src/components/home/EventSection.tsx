@@ -12,18 +12,18 @@ const events = [
     description: "A week of sustainable fashion innovation and networking. Industry leaders gathered to discuss cutting-edge sustainable practices and shape the future of fashion manufacturing.",
   },
   {
-    title: "2024 TAISPO",
-    date: "March 6-9, 2024",
+    title: "2023 FASHION EXPO",
+    date: "October 18, 2024",
     image: "/events/2.jpeg",
   },
   {
-    title: "2023 TITAS",
-    date: "October 17-19, 2023",
+    title: "2023 FASHION EXPO",
+    date: "October 18, 2024",
     image: "/events/event.jpeg",
   },
   {
-    title: "2022 FASHION EXPO",
-    date: "November 10, 2023",
+    title: "2023 FASHION EXPO",
+    date: "October 18, 2024",
     image: "/events/3.jpeg",
   },
 ];
