@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
+import ScrollToTop from './components/layout/ScrollToTop';
 
 // Lazy load all pages
 const Home = lazy(() => import('./pages/Home'));
@@ -25,6 +26,7 @@ const LoadingSpinner = () => (
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-black text-white overflow-x-hidden">
         <Layout>
           <Suspense fallback={<LoadingSpinner />}>

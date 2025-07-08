@@ -17,7 +17,7 @@ const productLinks = [
   { name: 'Cords', href: '/products/cords', isNew: false },
   { name: 'Tapes', href: '/products/tapes', isNew: true },
   { name: 'Buttons', href: '/products/buttons', isNew: true },
-  { name: 'Fabric', href: '' },
+  { name: 'Fabric',},
   { name: 'Lables',},
   { name: 'Yarn',},
 ];
