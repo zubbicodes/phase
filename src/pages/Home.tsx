@@ -15,7 +15,7 @@ const Home = () => {
       <Helmet>
         <title>ADSONS Group of Industries | Trusted By Top Brands</title>
         <meta name="description" content="Certified preshrink elastic manufacturer. Leading the way in sustainable manufacturing and innovation. Polyester knitted elastics, yarns, tapes, cords, and more." />
-        <meta name="keywords" content="Adsons, Polyester Elastic, Knitted Elastic, Textile, Yarn, Tapes, Cords, Buttons, Fabrics, Workwear, Pakistan, Faisalabad, Manufacturer, Supplier, Durable, Flexible, Global" />
+        <meta name="keywords" content="Adsons, adsons group of industries, adsons global, elastic manufacturer, elastic manufacturer in faisalabd, elastic manufacturer in pakistan, Polyester Elastic, Knitted Elastic, Textile, Yarn, Tapes, Cords, Buttons, Fabrics, Workwear, Pakistan, Faisalabad, Manufacturer, Supplier, Durable, Flexible, Global" />
         {/* Open Graph tags */}
         <meta property="og:title" content="ADSONS Group of Industries" />
         <meta property="og:description" content="Certified preshrink elastic manufacturer. Leading the way in sustainable manufacturing and innovation. Polyester knitted elastics, yarns, tapes, cords, and more." />
