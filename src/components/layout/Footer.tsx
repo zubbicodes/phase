@@ -1,5 +1,6 @@
 import React from 'react';
 import { Linkedin, Twitter, Circle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const mainMenu = [
   { name: 'Home', href: '/' },
@@ -32,12 +33,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {mainMenu.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-white text-lg font-light hover:underline transition"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -48,12 +49,16 @@ const Footer = () => {
             <ul className="space-y-3">
               {productLinks.map((link) => (
                 <li key={link.name} className="flex items-center gap-2">
-                  <a
-                    href={link.href}
-                    className="text-white text-lg font-light hover:underline transition"
-                  >
-                    {link.name}
-                  </a>
+                  {link.href ? (
+                    <Link
+                      to={link.href}
+                      className="text-white text-lg font-light hover:underline transition"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <span className="text-white text-lg font-light">{link.name}</span>
+                  )}
                   {link.isNew && (
                     <span className="ml-1 px-2 py-0.5 text-xs rounded bg-green-900 text-green-300 font-semibold">NEW</span>
                   )}
