@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ParallaxCarousel from '../../components/ui/ParallaxCarousel';
 
 const slides = [
@@ -145,11 +145,23 @@ const slides = [
     description: 'Our commitment to sustainability is woven into every fiber, with eco-friendly materials and responsible manufacturing.',
     image: '/hero/fabric_2.jpg',
   },
-
-
 ];
 
 const HeroSection = () => {
+  // Preload images in the background without blocking the UI
+  useEffect(() => {
+    const preloadImages = () => {
+      slides.forEach(slide => {
+        const img = new Image();
+        img.src = slide.image;
+      });
+    };
+    
+    // Start preloading after a short delay to not block initial render
+    const timer = setTimeout(preloadImages, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="relative w-full h-[calc(100vh-4rem)]">
       <ParallaxCarousel slides={slides} />

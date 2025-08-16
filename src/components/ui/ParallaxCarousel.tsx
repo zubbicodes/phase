@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -18,13 +18,36 @@ interface ParallaxCarouselProps {
 
 const ParallaxCarousel: React.FC<ParallaxCarouselProps> = ({ slides, interval = 5000 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
+  // Handle slide change
+  const goToNextSlide = () => {
+    if (!isTransitioning) {
+      setIsTransitioning(true);
       setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, interval);
-    return () => clearInterval(timer);
-  }, [slides.length, interval]);
+      
+      // Reset transition state after animation
+      setTimeout(() => {
+        setIsTransitioning(false);
+      }, 1000);
+    }
+  };
+
+  // Auto-advance slides
+  useEffect(() => {
+    if (!isTransitioning) {
+      timerRef.current = setTimeout(() => {
+        goToNextSlide();
+      }, interval);
+    }
+
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
+    };
+  }, [currentIndex, interval, isTransitioning]);
 
   const currentSlide = slides[currentIndex];
 
@@ -51,7 +74,11 @@ const ParallaxCarousel: React.FC<ParallaxCarouselProps> = ({ slides, interval = 
             <div className="relative w-full md:w-1/2 h-full bg-black flex flex-col justify-center p-8 md:p-16 lg:p-24">
               {/* Background for mobile */}
               <div className="md:hidden absolute inset-0">
-                <img src={currentSlide.image} alt={currentSlide.title} className="w-full h-full object-cover" />
+                <img 
+                  src={currentSlide.image} 
+                  alt={currentSlide.title} 
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-black opacity-60" />
               </div>
 
@@ -102,11 +129,65 @@ const ParallaxCarousel: React.FC<ParallaxCarouselProps> = ({ slides, interval = 
             </div>
             {/* Right side with image */}
             <div className="hidden md:block md:w-1/2 h-full">
-              <img src={currentSlide.image} alt={currentSlide.title} className="w-full h-full object-cover"/>
+              <img 
+                src={currentSlide.image} 
+                alt={currentSlide.title} 
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </motion.div>
       </AnimatePresence>
+
+      {/* Progress indicator */}
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+        <div className="flex space-x-2">
+          {slides.map((_, index) => (
+            <div
+              key={index}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                index === currentIndex 
+                  ? 'bg-white scale-125' 
+                  : 'bg-white/30'
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Manual navigation buttons */}
+      <div className="absolute inset-y-0 left-4 flex items-center">
+        <button
+          onClick={() => {
+            if (!isTransitioning) {
+              const prevIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
+              setCurrentIndex(prevIndex);
+            }
+          }}
+          className="bg-black/50 hover:bg-black/70 text-white p-2 rounded-full backdrop-blur-sm transition-all duration-200 disabled:opacity-50"
+          disabled={isTransitioning}
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+      </div>
+
+      <div className="absolute inset-y-0 right-4 flex items-center">
+        <button
+          onClick={() => {
+            if (!isTransitioning) {
+              goToNextSlide();
+            }
+          }}
+          className="bg-black/50 hover:bg-black/70 text-white p-2 rounded-full backdrop-blur-sm transition-all duration-200 disabled:opacity-50"
+          disabled={isTransitioning}
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
     </div>
   );
 };

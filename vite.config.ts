@@ -43,4 +43,10 @@ export default defineConfig({
   },
   // Image optimization
   assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif', '**/*.svg', '**/*.webp'],
+  // Add preload hints for critical images
+  server: {
+    headers: {
+      'Cache-Control': 'public, max-age=31536000, immutable',
+    },
+  },
 });
