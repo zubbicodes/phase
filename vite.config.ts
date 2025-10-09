@@ -40,6 +40,7 @@ export default defineConfig({
     },
     // Optimize assets
     assetsInlineLimit: 4096, // Inline assets smaller than 4kb
+    cssCodeSplit: true, // Enable CSS code splitting
   },
   // Image optimization
   assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif', '**/*.svg', '**/*.webp'],

@@ -82,16 +82,34 @@ export const CircularTestimonials = ({
     [activeIndex, testimonials]
   );
 
-  // Responsive gap calculation
+  // Responsive gap calculation with throttling to prevent reflows
   useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+    
     function handleResize() {
-      if (imageContainerRef.current) {
-        setContainerWidth(imageContainerRef.current.offsetWidth);
-      }
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        if (imageContainerRef.current) {
+          // Use requestAnimationFrame to avoid forced reflow
+          requestAnimationFrame(() => {
+            setContainerWidth(imageContainerRef.current!.offsetWidth);
+          });
+        }
+      }, 16); // ~60fps throttling
     }
-    handleResize();
+    
+    // Initial measurement
+    if (imageContainerRef.current) {
+      requestAnimationFrame(() => {
+        setContainerWidth(imageContainerRef.current!.offsetWidth);
+      });
+    }
+    
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   // Helper to start autoplay interval

@@ -17,21 +17,55 @@ export function Spotlight({
   const y = useMotionValue(0);
 
   useEffect(() => {
+    let animationFrameId: number;
+    let cachedRect: DOMRect | null = null;
+    let lastUpdateTime = 0;
+    const throttleMs = 16; // ~60fps
+
     const handleMouseMove = (e: MouseEvent) => {
+      const now = performance.now();
+      
+      if (now - lastUpdateTime < throttleMs) {
+        return;
+      }
+      
+      lastUpdateTime = now;
+      
       if (!ref.current) return;
 
-      const rect = ref.current.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
+      // Cache bounding rect and only recalculate when needed
+      if (!cachedRect) {
+        cachedRect = ref.current.getBoundingClientRect();
+      }
 
-      x.set(e.clientX - centerX);
-      y.set(e.clientY - centerY);
+      const centerX = cachedRect.left + cachedRect.width / 2;
+      const centerY = cachedRect.top + cachedRect.height / 2;
+
+      // Use requestAnimationFrame to batch updates
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+      
+      animationFrameId = requestAnimationFrame(() => {
+        x.set(e.clientX - centerX);
+        y.set(e.clientY - centerY);
+      });
+    };
+
+    // Reset cached rect on resize
+    const handleResize = () => {
+      cachedRect = null;
     };
 
     window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('resize', handleResize);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('resize', handleResize);
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
     };
   }, [x, y]);
 
