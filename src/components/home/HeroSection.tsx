@@ -172,12 +172,7 @@ const HeroSection = () => {
 
   return (
     <section className="relative w-full h-[calc(100vh-4rem)]">
-      {/* Show loading progress if still loading */}
-      {isLoading && (
-        <div className="absolute top-4 right-4 z-50 bg-black/50 backdrop-blur-sm rounded-lg px-4 py-2 text-white text-sm">
-          Loading images: {Math.round(loadingProgress)}%
-        </div>
-      )}
+      
       <ParallaxCarousel slides={optimizedSlides} />
     </section>
   );
