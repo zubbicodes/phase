@@ -35,7 +35,7 @@ const TargetSupplierSection = () => {
             <div className="relative z-10 bg-gray-800 rounded-2xl p-8 shadow-2xl">
               <div className="aspect-w-16 aspect-h-9">
                 <WebPImage
-                  src="/target-logo2.png"
+                  src="/target-logo2.webp"
                   alt="Target Logo"
                   className="object-contain w-full h-full"
                 />
