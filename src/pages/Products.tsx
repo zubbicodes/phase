@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import StickyScroll from '../components/ui/sticky-scroll';
 import { Helmet } from 'react-helmet-async';
+import WebPImage from '../components/common/WebPImage';
 
 const Products = () => {
   const productsList = [
@@ -73,7 +74,7 @@ const Products = () => {
                   >
                     <Link to={product.href} className="block bg-gray-900 rounded-2xl overflow-hidden shadow-xl group h-full flex flex-col">
                       <div className="relative h-64">
-                        <img
+                        <WebPImage
                           src={product.image}
                           alt={product.name}
                           className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300"

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import WebPImage from '../common/WebPImage';
 
 const TargetSupplierSection = () => {
   return (
@@ -33,7 +34,7 @@ const TargetSupplierSection = () => {
           >
             <div className="relative z-10 bg-gray-800 rounded-2xl p-8 shadow-2xl">
               <div className="aspect-w-16 aspect-h-9">
-                <img
+                <WebPImage
                   src="/target-logo2.png"
                   alt="Target Logo"
                   className="object-contain w-full h-full"
@@ -53,7 +54,7 @@ const TargetSupplierSection = () => {
               }}
               className="absolute -top-6 -right-6 z-20"
             >
-              <img
+              <WebPImage
                 src="/certified.png"
                 alt="Certified Badge"
                 className="w-16 h-16 object-contain drop-shadow-lg"

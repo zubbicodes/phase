@@ -3,6 +3,7 @@
 import { Tilt } from "../ui/tilt";
 import { Spotlight } from "../ui/spotlight";
 import { Link } from "react-router-dom";
+import WebPImage from "../common/WebPImage";
 
 const events = [
   {
@@ -31,7 +32,7 @@ const events = [
 const SideEventCard = ({ event }: { event: typeof events[0] }) => {
   return (
     <div className="flex items-center space-x-6 mb-10 last:mb-0">
-      <img
+      <WebPImage
         src={event.image}
         alt={event.title}
         className="w-48 h-28 object-cover rounded-md flex-shrink-0"
@@ -79,7 +80,7 @@ const EventSection = () => {
                 }}
               />
               <div className="relative">
-                <img
+                <WebPImage
                   src={mainEvent.image}
                   alt={mainEvent.title}
                   className='w-full h-[60vh] object-cover grayscale duration-700 group-hover:grayscale-0'

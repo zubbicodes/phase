@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ParallaxCarousel from '../../components/ui/ParallaxCarousel';
+import { useImagePreloader } from '../../hooks/useImagePreloader';
+import WebPImage from '../common/WebPImage';
 
 const slides = [
   {
@@ -148,23 +150,35 @@ const slides = [
 ];
 
 const HeroSection = () => {
+  // Get all image URLs for preloading
+  const imageUrls = slides.map(slide => slide.image);
+  
+  // Use the enhanced image preloader hook
+  const { preloadImages, loadingProgress, isLoading, getImageUrl } = useImagePreloader(imageUrls);
+
   // Preload images in the background without blocking the UI
   useEffect(() => {
-    const preloadImages = () => {
-      slides.forEach(slide => {
-        const img = new Image();
-        img.src = slide.image;
-      });
-    };
-    
-    // Start preloading after a short delay to not block initial render
-    const timer = setTimeout(preloadImages, 100);
+    const timer = setTimeout(() => {
+      preloadImages();
+    }, 100);
     return () => clearTimeout(timer);
-  }, []);
+  }, [preloadImages]);
+
+  // Convert slides to use WebP images
+  const optimizedSlides = slides.map(slide => ({
+    ...slide,
+    image: getImageUrl(slide.image)
+  }));
 
   return (
     <section className="relative w-full h-[calc(100vh-4rem)]">
-      <ParallaxCarousel slides={slides} />
+      {/* Show loading progress if still loading */}
+      {isLoading && (
+        <div className="absolute top-4 right-4 z-50 bg-black/50 backdrop-blur-sm rounded-lg px-4 py-2 text-white text-sm">
+          Loading images: {Math.round(loadingProgress)}%
+        </div>
+      )}
+      <ParallaxCarousel slides={optimizedSlides} />
     </section>
   );
 };

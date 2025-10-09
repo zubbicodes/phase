@@ -41,12 +41,18 @@ export default defineConfig({
     // Optimize assets
     assetsInlineLimit: 4096, // Inline assets smaller than 4kb
   },
-  // Image optimization
+  // Enhanced image optimization for WebP
   assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif', '**/*.svg', '**/*.webp'],
   // Add preload hints for critical images
   server: {
     headers: {
       'Cache-Control': 'public, max-age=31536000, immutable',
+      // Add WebP support headers
+      'Accept': 'image/webp,image/apng,image/*,*/*;q=0.8',
     },
+  },
+  // Optimize image processing
+  esbuild: {
+    target: 'es2020',
   },
 });

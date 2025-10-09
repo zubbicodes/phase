@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Leaf, Recycle, Zap, Users, Target, Award } from 'lucide-react';
 import StickyScroll from '../components/ui/sticky-scroll';
 import { Helmet } from 'react-helmet-async';
+import WebPImage from '../components/common/WebPImage';
 
 const About = () => {
   const values = [
@@ -117,7 +118,7 @@ const About = () => {
                   viewport={{ once: true }}
                   className="relative"
                 >
-                  <img
+                  <WebPImage
                     src="/about.jpeg"
                     alt="Our Company"
                     className="rounded-2xl shadow-2xl"

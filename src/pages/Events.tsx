@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Tilt } from '../components/ui/tilt';
 import { Spotlight } from '../components/ui/spotlight';
 import StickyScroll from '../components/ui/sticky-scroll';
+import WebPImage from '../components/common/WebPImage';
 import { Helmet } from 'react-helmet-async';
 
 const Events = () => {
@@ -108,7 +109,7 @@ const Events = () => {
                       />
                       <div className="grid md:grid-cols-2 gap-8">
                         <div className="relative h-full">
-                          <img
+                          <WebPImage
                             src={event.image}
                             alt={event.title}
                             className="w-full h-full object-cover"
@@ -180,7 +181,7 @@ const Events = () => {
                                   transition={{ duration: 0.2, delay: i * 0.1 }}
                                   className="relative rounded-lg cursor-pointer"
                                 >
-                                  <img src={img} alt={`Gallery image ${i + 1}`} className="w-full h-full object-cover rounded-lg" />
+                                  <WebPImage src={img} alt={`Gallery image ${i + 1}`} className="w-full h-full object-cover rounded-lg" />
                                 </motion.div>
                               ))}
                             </div>

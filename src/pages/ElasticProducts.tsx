@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../co
 import { Sparkles } from '../components/ui/sparkles';
 import { Sun, ShieldHalf, SunMedium, Recycle, ArrowLeftRight, Droplets } from 'lucide-react';
 import StickyScroll from '../components/ui/sticky-scroll';
+import WebPImage from '../components/common/WebPImage';
 
 const attributes = [
   {
@@ -268,7 +269,7 @@ const ElasticProducts = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="aspect-video relative rounded-lg overflow-hidden mb-2">
-                    <img src={item.image} alt={item.name} className="object-cover w-full h-full" />
+                    <WebPImage src={item.image} alt={item.name} className="object-cover w-full h-full" />
                   </div>
                 </CardContent>
                 </Tilt>
@@ -292,7 +293,7 @@ const ElasticProducts = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="aspect-video relative rounded-lg overflow-hidden mb-2">
-                    <img src={item.image} alt={item.name} className="object-cover w-full h-full" />
+                    <WebPImage src={item.image} alt={item.name} className="object-cover w-full h-full" />
                   </div>
                 </CardContent>
                 </Tilt>
@@ -316,7 +317,7 @@ const ElasticProducts = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="aspect-video relative rounded-lg overflow-hidden mb-2">
-                    <img src={item.image} alt={item.name} className="object-cover w-full h-full" />
+                    <WebPImage src={item.image} alt={item.name} className="object-cover w-full h-full" />
                   </div>
                 </CardContent>
                 </Tilt>

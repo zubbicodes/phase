@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import StickyScroll from '../components/ui/sticky-scroll';
 import { Helmet } from 'react-helmet-async';
+import WebPImage from '../components/common/WebPImage';
 
 const Certifications = () => {
   const certifications = [
@@ -135,7 +136,7 @@ const Certifications = () => {
                   >
                     <div className="grid md:grid-cols-2 gap-8 p-8">
                       <div className="flex items-center justify-center">
-                        <img
+                        <WebPImage
                           src={cert.image}
                           alt={cert.title}
                           className="max-w-full h-auto max-h-48 object-contain"

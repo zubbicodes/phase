@@ -6,6 +6,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "../../components/ui/carousel";
+import WebPImage from "../common/WebPImage";
 
 const TrustedClientsSection = () => {
   const [api, setApi] = useState<CarouselApi>();
@@ -67,7 +68,7 @@ const TrustedClientsSection = () => {
               {clients.map((client, index) => (
                 <CarouselItem className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/6" key={index}>
                   <div className="flex rounded-md aspect-square bg-white/10 items-center justify-center p-4 md:p-6">
-                    <img
+                    <WebPImage
                       src={client.logo}
                       alt={client.name}
                       className="w-full h-full object-contain"

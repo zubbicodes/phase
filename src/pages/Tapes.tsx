@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Tilt } from '../components/ui/tilt';
 import StickyScroll from '../components/ui/sticky-scroll';
+import WebPImage from '../components/common/WebPImage';
 
 const features = [
   'This webbing was made with fine gloss color yarn. Various yarns can be woven/printed with various pattern types such as rainbow, grid, gradient, or reflective yarn to present enhanced multi-color, surface texture, and unique effects.',
@@ -64,7 +65,7 @@ const Tapes = () => {
                 <li key={i} className="text-lg text-gray-300">{f}</li>
               ))}
             </ul>
-            <img src="/products/tapes/1.jpg" alt="Cords Feature" className="rounded-lg w-full max-w-xs md:max-w-sm" />
+            <WebPImage src="/products/tapes/1.jpg" alt="Cords Feature" className="rounded-lg w-full max-w-xs md:max-w-sm" />
           </div>
         </div>
 
@@ -83,7 +84,7 @@ const Tapes = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="aspect-video relative rounded-lg overflow-hidden mb-2">
-                      <img src={item.image} alt={item.name} className="object-cover w-full h-full" />
+                      <WebPImage src={item.image} alt={item.name} className="object-cover w-full h-full" />
                     </div>
                   </CardContent>
                 </Card>

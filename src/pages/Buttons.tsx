@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Tilt } from '../components/ui/tilt';
 import { Sparkles } from '../components/ui/sparkles';
 import StickyScroll from '../components/ui/sticky-scroll';
+import WebPImage from '../components/common/WebPImage';
 
 const seriesData = [
   {
@@ -81,7 +82,7 @@ const Buttons = () => {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <img src="/products/buttons/1.jpg" alt="Connection" className="rounded-lg shadow-lg w-full h-full object-cover"/>
+                <WebPImage src="/products/buttons/1.jpg" alt="Connection" className="rounded-lg shadow-lg w-full h-full object-cover"/>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
@@ -115,7 +116,7 @@ const Buttons = () => {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <img src="/products/buttons/2.jpg" alt="Feature" className="rounded-lg shadow-lg w-full h-full object-cover" />
+                <WebPImage src="/products/buttons/2.jpg" alt="Feature" className="rounded-lg shadow-lg w-full h-full object-cover" />
               </motion.div>
             </div>
           </div>
@@ -136,7 +137,7 @@ const Buttons = () => {
                       <Tilt>
                           <div className="flex flex-col items-center text-center">
                               <div className="w-48 h-48 mb-6 rounded-full overflow-hidden border-4 border-gray-800 group hover:border-blue-500 transition-all duration-300">
-                                  <img src={item.image} alt={item.name} className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-300" />
+                                  <WebPImage src={item.image} alt={item.name} className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-300" />
                               </div>
                               <h3 className="text-xl font-bold text-white mb-2">{item.name}</h3>
                               <p className="text-gray-400 px-4">{item.description}</p>

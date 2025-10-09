@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import WebPImage from '../common/WebPImage';
 
 interface Slide {
   id: number;
@@ -74,7 +75,7 @@ const ParallaxCarousel: React.FC<ParallaxCarouselProps> = ({ slides, interval = 
             <div className="relative w-full md:w-1/2 h-full bg-black flex flex-col justify-center p-8 md:p-16 lg:p-24">
               {/* Background for mobile */}
               <div className="md:hidden absolute inset-0">
-                <img 
+                <WebPImage 
                   src={currentSlide.image} 
                   alt={currentSlide.title} 
                   className="w-full h-full object-cover"
@@ -129,7 +130,7 @@ const ParallaxCarousel: React.FC<ParallaxCarouselProps> = ({ slides, interval = 
             </div>
             {/* Right side with image */}
             <div className="hidden md:block md:w-1/2 h-full">
-              <img 
+              <WebPImage 
                 src={currentSlide.image} 
                 alt={currentSlide.title} 
                 className="w-full h-full object-cover"

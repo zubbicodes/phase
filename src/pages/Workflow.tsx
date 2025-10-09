@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Tilt } from '../components/ui/tilt';
 import { Spotlight } from '../components/ui/spotlight';
 import { Sparkles } from '../components/ui/sparkles';
+import WebPImage from '../components/common/WebPImage';
 import { 
   Package, 
   Truck, 
@@ -196,7 +197,7 @@ const Workflow = () => {
                               <CarouselContent>
                                 {step.image.map((imgSrc, i) => (
                                   <CarouselItem key={i}>
-                                    <img
+                                    <WebPImage
                                       src={imgSrc}
                                       alt={`${step.title} ${i + 1}`}
                                       className="w-full h-[420px] md:h-[500px] object-cover rounded-3xl shadow-2xl border-4 border-blue-700/30 group-hover:scale-105 transition-transform duration-500"
@@ -206,7 +207,7 @@ const Workflow = () => {
                               </CarouselContent>
                             </Carousel>
                             ) : (
-                              <img
+                              <WebPImage
                                 src={step.image}
                                 alt={step.title}
                                 className="w-full h-[420px] md:h-[500px] object-cover rounded-3xl shadow-2xl border-4 border-blue-700/30 group-hover:scale-105 transition-transform duration-500"

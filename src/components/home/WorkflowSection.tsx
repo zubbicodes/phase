@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
+import WebPImage from '../common/WebPImage';
 
 interface Slide {
   id: number;
@@ -52,14 +53,14 @@ const WorkflowCarousel: React.FC<WorkflowCarouselProps> = ({ slides, interval = 
           <div className="w-full h-full flex">
             {/* Left side with image */}
             <div className="hidden md:block md:w-1/2 h-full">
-              <img src={currentSlide.image} alt={currentSlide.title} className="w-full h-full object-cover"/>
+              <WebPImage src={currentSlide.image} alt={currentSlide.title} className="w-full h-full object-cover"/>
             </div>
             
             {/* Right side with text */}
             <div className="relative w-full md:w-1/2 h-full bg-black flex flex-col justify-center p-8 md:p-16 lg:p-24">
               {/* Background for mobile */}
               <div className="md:hidden absolute inset-0">
-                <img src={currentSlide.image} alt={currentSlide.title} className="w-full h-full object-cover" />
+                <WebPImage src={currentSlide.image} alt={currentSlide.title} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-black opacity-60" />
               </div>
 
