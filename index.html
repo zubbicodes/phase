@@ -5,55 +5,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/logo_no_bg.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="ADSONS Group of Industries - Leading manufacturer of elastic, fabric, and textile products" />
-    <meta name="theme-color" content="#1a1a1a" />
     <title>ADSONS Group of Industries</title>
-    
-    <!-- Critical CSS inline -->
-    <style>
-      /* Critical CSS - Above the fold styles only */
-      :root {
-        --primary-color: #1a1a1a;
-        --secondary-color: #ffffff;
-        --accent-color: #3b82f6;
-      }
-      
-      html {
-        scroll-behavior: smooth;
-      }
-      
-      body {
-        background-color: #000000;
-        color: #ffffff;
-        font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        cursor: url('/cursor.png') 0 0, auto;
-        margin: 0;
-        padding: 0;
-      }
-      
-      /* Critical layout styles */
-      #root {
-        min-height: 100vh;
-      }
-      
-      /* Critical animation classes */
-      .animate-in {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-      }
-      
-      /* Accessibility */
-      @media (prefers-reduced-motion: reduce) {
-        * {
-          animation-duration: 0.01ms !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: 0.01ms !important;
-        }
-        html {
-          scroll-behavior: auto;
-        }
-      }
-    </style>
     
     <!-- Preload critical hero images -->
     <link rel="preload" as="image" href="/hero/elastic_.png" />
@@ -67,25 +19,8 @@
     <!-- Preload fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Load fonts asynchronously to prevent render blocking -->
-    <script>
-      // Load Google Fonts asynchronously
-      (function() {
-        var link = document.createElement('link');
-        link.href = 'https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Inter:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap';
-        link.rel = 'stylesheet';
-        link.media = 'print';
-        link.onload = function() {
-          this.media = 'all';
-        };
-        document.head.appendChild(link);
-      })();
-    </script>
-    
-    <!-- DNS prefetch for external resources -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="root"></div>

@@ -56,7 +56,6 @@ export function Tilt({
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return;
 
-    // Cache bounding rect to avoid repeated getBoundingClientRect calls
     const rect = ref.current.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
@@ -66,11 +65,8 @@ export function Tilt({
     const xPos = mouseX / width - 0.5;
     const yPos = mouseY / height - 0.5;
 
-    // Use requestAnimationFrame to batch updates and avoid forced reflows
-    requestAnimationFrame(() => {
-      x.set(xPos);
-      y.set(yPos);
-    });
+    x.set(xPos);
+    y.set(yPos);
   };
 
   const handleMouseLeave = () => {

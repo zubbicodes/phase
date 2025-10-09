@@ -5,10 +5,7 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Use requestAnimationFrame to avoid forced reflow
-    requestAnimationFrame(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [pathname]);
 
   return null;
