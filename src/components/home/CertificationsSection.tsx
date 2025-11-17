@@ -13,14 +13,8 @@ const certificates = [
     quote: 'Recognized for excellence in trim manufacturing',
     name: 'Trim Supplier Qualification',
     designation: 'intertek Certification',
-    src: '/certificates/4.png',
+    src: '/certificates/tqp1.png',
   },{
-    quote: 'Certified for ethical and responsible business practices',
-    name: 'SEDEX',
-    designation: 'Certification',
-    src: '/certificates/1.png', 
-  },
-  {
     quote: 'Certified for meeting the Global Recycle Standard',
     name: 'GLOBAL RECYCLE STANDARD',
     designation: 'Certification',
@@ -28,7 +22,7 @@ const certificates = [
   },
   {
     quote: 'Certified for sustainability with the OKEO-TEX',
-    name: 'OKKO-TEX®',
+    name: 'OEKO-TEX®',
     designation: 'Certification',
     src: '/certificates/madeingreen.png',
   },
@@ -36,7 +30,7 @@ const certificates = [
     quote: 'Certified for sustainability with the Higg Index',
     name: 'Higgs Index',
     designation: 'Certification',
-    src: '/certificates/2.png', 
+    src: '/certificates/higgs.png', 
   },
   
 ];

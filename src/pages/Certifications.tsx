@@ -21,7 +21,7 @@ const Certifications = () => {
     {
       title: 'Trim Supplier Qualification',
       description: 'Recognized for excellence in trim manufacturing',
-      image: '/certificates/4.png',
+      image: '/certificates/tqp1.png',
       details: 'Our trim manufacturing processes meet the highest industry standards, ensuring quality and consistency in every product.',
       benefits: [
         'Quality assurance',
@@ -30,18 +30,7 @@ const Certifications = () => {
         'Customer confidence'
       ]
     },
-    {
-      title: 'SEDEX',
-      description: 'Certified for ethical and responsible business practices',
-      image: '/certificates/1.png',
-      details: 'SEDEX certification demonstrates our commitment to ethical business practices, labor rights, and environmental responsibility.',
-      benefits: [
-        'Ethical business practices',
-        'Labor rights protection',
-        'Environmental responsibility',
-        'Supply chain transparency'
-      ]
-    },
+    
     {
       title: 'GLOBAL RECYCLE STANDARD',
       description: 'Certified for meeting the Global Recycle Standard',
@@ -69,7 +58,7 @@ const Certifications = () => {
     {
       title: 'Higgs Index',
       description: 'Certified for sustainability with the Higg Index',
-      image: '/certificates/2.png',
+      image: '/certificates/higgs.png',
       details: 'The Higg Index certification measures and evaluates our environmental and social sustainability performance.',
       benefits: [
         'Sustainability measurement',
