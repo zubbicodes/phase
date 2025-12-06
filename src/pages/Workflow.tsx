@@ -89,7 +89,7 @@ const Workflow = () => {
       title: "Final Inspection",
       description: "Thorough final check before shipping",
       icon: ClipboardCheck,
-      image: "/workflow/18.png",
+      image: "/workflow/final_inspection.png",
       details: [
         "Quality Check & Documentation review",
         "Order accuracy verification",
