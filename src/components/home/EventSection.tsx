@@ -7,6 +7,12 @@ import WebPImage from "../common/WebPImage";
 
 const events = [
   {
+    title: "EXPO NOV 2025",
+    date: "November 15, 2025",
+    image: "/events/posterevent2025.png",
+    description: "Join us for the most anticipated fashion event of the year. Experience the latest trends, innovations, and networking opportunities with industry leaders.",
+  },
+  {
     title: "2023 FASHION EXPO",
     date: "October 18, 2024",
     image: "/events/1.jpeg",
@@ -20,29 +26,26 @@ const events = [
   {
     title: "2023 FASHION EXPO",
     date: "October 18, 2024",
-    image: "/events/event.jpeg",
-  },
-  {
-    title: "2023 FASHION EXPO",
-    date: "October 18, 2024",
     image: "/events/3.jpeg",
   },
 ];
 
 const SideEventCard = ({ event }: { event: typeof events[0] }) => {
   return (
-    <div className="flex items-center space-x-6 mb-10 last:mb-0">
-      <WebPImage
-        src={event.image}
-        alt={event.title}
-        className="w-48 h-28 object-cover rounded-md flex-shrink-0"
-      />
-      <div>
-        <h3 className="font-bold text-white text-2xl mb-2">
-          {event.title}
-        </h3>
-        <p className="text-gray-400 text-lg">{event.date}</p>
-      </div>
+    <div className="mb-10 last:mb-0">
+      <Link to="/events" className="flex items-center space-x-6 hover:opacity-90 transition-opacity">
+        <WebPImage
+          src={event.image}
+          alt={event.title}
+          className="w-48 h-28 object-cover rounded-md flex-shrink-0"
+        />
+        <div>
+          <h3 className="font-bold text-white text-2xl mb-2">
+            {event.title}
+          </h3>
+          <p className="text-gray-400 text-lg">{event.date}</p>
+        </div>
+      </Link>
     </div>
   );
 };
@@ -87,9 +90,9 @@ const EventSection = () => {
                 />
                 <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent' />
                 <div className='absolute top-8 left-8 text-white'>
-                  <p className='text-lg font-bold'>18</p>
-                  <p className='text-sm'>October</p>
-                  <p className='text-sm'>2024</p>
+                  <p className='text-lg font-bold'>15</p>
+                  <p className='text-sm'>November</p>
+                  <p className='text-sm'>2025</p>
                 </div>
                 <div className='absolute bottom-8 left-8 p-4 text-white'>
                   <h3 className='font-bold text-3xl md:text-4xl mb-4'>{mainEvent.title}</h3>

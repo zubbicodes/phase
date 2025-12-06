@@ -11,7 +11,27 @@ const Events = () => {
 
   const events = [
     {
-      title: "2024 FASHION EXPO",
+      title: "EXPO NOV 2025",
+      date: "November 15, 2025",
+      image: "/events/posterevent2025.png",
+      description: "Join us for the most anticipated fashion event of the year. Experience the latest trends, innovations, and networking opportunities with industry leaders.",
+      location: "Lahore, Pakistan",
+      type: "Exhibition",
+      highlights: [
+        "Latest fashion trends showcase",
+        "Networking with industry leaders",
+        "Exclusive previews of upcoming collections",
+        "Interactive workshops and panels"
+      ],
+      gallery: [
+        "/events/1.jpeg",
+        "/events/2.jpeg",
+        "/events/3.jpeg",
+        "/events/4.jpeg"
+      ]
+    },
+    {
+      title: "2023 FASHION EXPO",
       date: "October 18, 2023",
       image: "/events/1.jpeg",
       description: "A week of sustainable fashion innovation and networking. Industry leaders gathered to discuss cutting-edge sustainable practices and shape the future of fashion manufacturing.",
