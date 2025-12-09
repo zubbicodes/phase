@@ -13,7 +13,7 @@ const Events = () => {
     {
       title: "EXPO NOV 2025",
       date: "November 15, 2025",
-      image: "/events/posterevent2025.png",
+      image: "/events/2025/2025_1.webp",
       description: "Join us for the most anticipated fashion event of the year. Experience the latest trends, innovations, and networking opportunities with industry leaders.",
       location: "Lahore, Pakistan",
       type: "Exhibition",
@@ -24,10 +24,11 @@ const Events = () => {
         "Interactive workshops and panels"
       ],
       gallery: [
-        "/events/1.jpeg",
-        "/events/2.jpeg",
-        "/events/3.jpeg",
-        "/events/4.jpeg"
+        "/events/2025/2025_5.webp",
+        "/events/2025/2025_2.webp",
+        "/events/2025/2025_4.webp",
+        "/events/2025/2025_3.webp"
+        
       ]
     },
     {

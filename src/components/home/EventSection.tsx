@@ -9,7 +9,7 @@ const events = [
   {
     title: "EXPO NOV 2025",
     date: "November 15, 2025",
-    image: "/events/posterevent2025.png",
+    image: "/events/2025/2025_1.webp",
     description: "Join us for the most anticipated fashion event of the year. Experience the latest trends, innovations, and networking opportunities with industry leaders.",
   },
   {
