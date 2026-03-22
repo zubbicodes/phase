@@ -31,6 +31,7 @@ const TrustedClientsSection = () => {
     { name: "JCPenney", logo: "/clients/jcpenney.png" },
     { name: "Primark", logo: "/clients/primark.png" },
     { name: "Target", logo: "/clients/target.png" },
+    { name: "Tesco", logo: "/Tesco_logo.webp" },
     { name: "Walmart", logo: "/clients/wallmart_logo.png" },
     { name: "Zara", logo: "/clients/zara.png" },
     { name: "ikea", logo: "/clients/ikea.png" },

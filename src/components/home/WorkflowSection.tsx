@@ -192,8 +192,26 @@ const workflowSlides = [
 const WorkflowSection = () => {
   const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.2 });
   return (
-    <section ref={ref} className="relative w-full h-[calc(100vh-4rem)] flex flex-col items-center justify-center">
-      <WorkflowCarousel slides={workflowSlides} autoloop={inView} />
+    <section ref={ref} className="relative w-full flex flex-col bg-black">
+      {/* Section Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="text-center pt-20 pb-12 px-4"
+      >
+        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+          Our Manufacturing Workflow
+        </h2>
+        <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          From raw materials to finished products — a seamless process built on precision, quality, and innovation
+        </p>
+      </motion.div>
+
+      <div className="w-full h-[calc(100vh-12rem)]">
+        <WorkflowCarousel slides={workflowSlides} autoloop={inView} />
+      </div>
     </section>
   );
 };

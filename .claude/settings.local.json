@@ -14,7 +14,9 @@
       "Bash(npx vite:*)",
       "Bash(find /d/phase/public/hero -name \"*.webp\" -exec du -ch {} +)",
       "Bash(find /d/phase/public/workflow -name \"*.webp\" -exec du -ch {} +)",
-      "Bash(find /d/phase/public/events -name \"*.webp\" -exec du -ch {} +)"
+      "Bash(find /d/phase/public/events -name \"*.webp\" -exec du -ch {} +)",
+      "Bash(find /d/phase -name *.png -o -name *.jpg -o -name *.webp -o -name *.svg)",
+      "Bash(npm run:*)"
     ]
   }
 }
