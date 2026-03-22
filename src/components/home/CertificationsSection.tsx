@@ -6,33 +6,57 @@ const certificates = [
   {
     quote: 'Certified for safe and sustainable textile production',
     name: 'OEKO-TEX STANDARD 100',
-    designation: 'Certification',
-    src: '/certificates/3.png',
+    designation: 'Textile Safety Certification',
+    src: '/certificates/new2026/oeko_tex_100.webp',
   },
   {
-    quote: 'Recognized for excellence in trim manufacturing',
-    name: 'Trim Supplier Qualification',
-    designation: 'intertek Certification',
-    src: '/certificates/tqp1.png',
-  },{
-    quote: 'Certified for meeting the Global Recycle Standard',
-    name: 'GLOBAL RECYCLE STANDARD',
-    designation: 'Certification',
-    src: '/certificates/5.png', 
+    quote: 'Traceable label for sustainable and ethical production',
+    name: 'OEKO-TEX® MADE IN GREEN',
+    designation: 'Sustainable Production Label',
+    src: '/certificates/new2026/madeingreen.webp',
   },
   {
-    quote: 'Certified for sustainability with the OKEO-TEX',
-    name: 'OEKO-TEX®',
-    designation: 'Certification',
-    src: '/certificates/madeingreen.png',
+    quote: 'Internationally recognized quality management certification',
+    name: 'ISO 9001',
+    designation: 'Quality Management System',
+    src: '/certificates/new2026/iso_9001.webp',
   },
   {
-    quote: 'Certified for sustainability with the Higg Index',
-    name: 'Higgs Index',
-    designation: 'Certification',
-    src: '/certificates/higgs.png', 
+    quote: 'Dedicated to minimizing environmental impact and promoting sustainability',
+    name: 'ISO 14001',
+    designation: 'Environmental Management System',
+    src: '/certificates/new2026/iso_14001.webp',
   },
-  
+  {
+    quote: 'Ensuring the well-being and safety of every employee',
+    name: 'ISO 45001',
+    designation: 'Occupational Health & Safety',
+    src: '/certificates/new2026/iso_45001.webp',
+  },
+  {
+    quote: 'Verified commitment to recycled content and sustainable practices',
+    name: 'GLOBAL RECYCLED STANDARD',
+    designation: 'GRS Certification',
+    src: '/certificates/new2026/grs_white_bg.webp',
+  },
+  {
+    quote: 'Commitment to ethical trade and responsible supply chains',
+    name: 'SEDEX',
+    designation: 'Ethical Trade & Supply Chain',
+    src: '/Sedex_logo.webp',
+  },
+  {
+    quote: 'Sustainability performance benchmarked against industry standards',
+    name: 'HIGG INDEX',
+    designation: 'Sustainability Performance',
+    src: '/certificates/new2026/higg-index.webp',
+  },
+  {
+    quote: 'Recognized for excellence in trim manufacturing globally',
+    name: 'INTERTEK TQP',
+    designation: 'Trim Quality Program',
+    src: '/certificates/tqp.webp',
+  },
 ];
 
 const CertificationsSection = () => {
@@ -78,7 +102,6 @@ const CertificationsSection = () => {
           </div>
         </div>
 
-        {/* Quality Commitment */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -96,4 +119,4 @@ const CertificationsSection = () => {
   );
 };
 
-export default CertificationsSection; 
+export default CertificationsSection;
