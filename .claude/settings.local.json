@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(du -sh /d/phase/public/*)",
+      "Bash(find /d/phase/public/hero -type f -exec du -h {})",
+      "Bash(find /d/phase/public/workflow -type f -exec du -h {})",
+      "Bash(xargs du:*)",
+      "Bash(node -e \"const s = require\\(''sharp''\\); console.log\\(''sharp available''\\)\")",
+      "Bash(sort -t/ -k6)",
+      "Bash(node -e \":*)",
+      "Bash(node -e \"const sharp = require\\(''sharp''\\); sharp\\(''D:/phase/public/hero/elastic_.webp''\\).metadata\\(\\).then\\(m => console.log\\(m\\)\\).catch\\(e => console.error\\(e.message\\)\\)\")",
+      "Bash(node -e \"const sharp = require\\(''sharp''\\); sharp\\(''D:/phase/public/workflow/9.webp''\\).metadata\\(\\).then\\(m => console.log\\(m\\)\\).catch\\(e => console.error\\(e.message\\)\\)\")",
+      "Bash(npx tsc:*)",
+      "Bash(npx vite:*)",
+      "Bash(find /d/phase/public/hero -name \"*.webp\" -exec du -ch {} +)",
+      "Bash(find /d/phase/public/workflow -name \"*.webp\" -exec du -ch {} +)",
+      "Bash(find /d/phase/public/events -name \"*.webp\" -exec du -ch {} +)"
+    ]
+  }
+}

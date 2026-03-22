@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ParallaxCarousel from '../../components/ui/ParallaxCarousel';
-import { useImagePreloader } from '../../hooks/useImagePreloader';
-import WebPImage from '../common/WebPImage';
 
 const slides = [
   {
@@ -53,14 +51,13 @@ const slides = [
     description: 'High-quality yarn that provides the perfect base for creating exceptional textiles.',
     image: '/hero/thread_1.webp',
   },
-    // New slide for High Quality DTY Yarns
-    {
-      id: 23,
-      preTitle: 'Premium\nDTY Yarns',
-      title: 'HIGH QUALITY DTY YARNS',
-      description: 'Our DTY (Draw Textured Yarn) offers superior strength, softness, and versatility for a wide range of textile applications.',
-      image: '/hero/dty_yarn.webp',
-    },
+  {
+    id: 23,
+    preTitle: 'Premium\nDTY Yarns',
+    title: 'HIGH QUALITY DTY YARNS',
+    description: 'Our DTY (Draw Textured Yarn) offers superior strength, softness, and versatility for a wide range of textile applications.',
+    image: '/hero/dty_yarn.webp',
+  },
   {
     id: 15,
     preTitle: 'The Perfect\nFinishing\nTouch',
@@ -75,7 +72,6 @@ const slides = [
     description: 'Choose our coconut buttons for an eco-friendly and stylish finish to your garments.',
     image: '/hero/coconut.webp',
   },
-
   {
     id: 9,
     preTitle: 'Seamless\nand\nSecure',
@@ -118,7 +114,6 @@ const slides = [
     description: 'Discover our range of polyester fabrics, combining performance, durability, and style.',
     image: '/hero/fabric_1.webp',
   },
-  
   {
     id: 22,
     preTitle: 'Advanced\nFabric\nTreatments',
@@ -150,32 +145,11 @@ const slides = [
 ];
 
 const HeroSection = () => {
-  // Get all image URLs for preloading
-  const imageUrls = slides.map(slide => slide.image);
-  
-  // Use the enhanced image preloader hook
-  const { preloadImages, loadingProgress, isLoading, getImageUrl } = useImagePreloader(imageUrls);
-
-  // Preload images in the background without blocking the UI
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      preloadImages();
-    }, 100);
-    return () => clearTimeout(timer);
-  }, [preloadImages]);
-
-  // Convert slides to use WebP images
-  const optimizedSlides = slides.map(slide => ({
-    ...slide,
-    image: getImageUrl(slide.image)
-  }));
-
   return (
     <section className="relative w-full h-[calc(100vh-4rem)]">
-      
-      <ParallaxCarousel slides={optimizedSlides} />
+      <ParallaxCarousel slides={slides} />
     </section>
   );
 };
 
-export default HeroSection; 
+export default HeroSection;

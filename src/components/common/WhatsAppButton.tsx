@@ -14,7 +14,13 @@ const WhatsAppButton = () => {
         onMouseLeave={() => setIsHovered(false)}
       >
         <div className="bg-green-500 text-white rounded-full p-2 shadow-lg transform hover:scale-110 transition-transform duration-300 flex items-center justify-center">
-          <img src={isHovered ? "/whatsapp.gif" : "/whatsapp.png"} alt="WhatsApp" className="w-8 h-8" />
+          <img
+            src={isHovered ? "/whatsapp_anim.webp" : "/whatsapp.png"}
+            alt="WhatsApp"
+            className="w-8 h-8"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
         <div className="absolute top-0 right-0 -mt-1 -mr-1 px-2 py-1 bg-red-500 text-white text-xs rounded-full">
           1
@@ -30,4 +36,4 @@ const WhatsAppButton = () => {
   );
 };
 
-export default WhatsAppButton; 
+export default WhatsAppButton;

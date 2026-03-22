@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -21,19 +21,33 @@ const ParallaxCarousel: React.FC<ParallaxCarouselProps> = ({ slides, interval = 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const preloadedRef = useRef<Set<number>>(new Set([0, 1]));
+
+  // Preload the next slide's image
+  const preloadSlide = useCallback((index: number) => {
+    if (preloadedRef.current.has(index)) return;
+    preloadedRef.current.add(index);
+    const img = new Image();
+    img.src = slides[index].image;
+  }, [slides]);
 
   // Handle slide change
-  const goToNextSlide = () => {
+  const goToNextSlide = useCallback(() => {
     if (!isTransitioning) {
       setIsTransitioning(true);
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-      
-      // Reset transition state after animation
+      setCurrentIndex((prevIndex) => {
+        const next = (prevIndex + 1) % slides.length;
+        // Preload the slide after next
+        const afterNext = (next + 1) % slides.length;
+        preloadSlide(afterNext);
+        return next;
+      });
+
       setTimeout(() => {
         setIsTransitioning(false);
       }, 1000);
     }
-  };
+  }, [isTransitioning, slides.length, preloadSlide]);
 
   // Auto-advance slides
   useEffect(() => {
@@ -48,7 +62,12 @@ const ParallaxCarousel: React.FC<ParallaxCarouselProps> = ({ slides, interval = 
         clearTimeout(timerRef.current);
       }
     };
-  }, [currentIndex, interval, isTransitioning]);
+  }, [currentIndex, interval, isTransitioning, goToNextSlide]);
+
+  // Preload slide 1 after mount
+  useEffect(() => {
+    preloadSlide(1);
+  }, [preloadSlide]);
 
   const currentSlide = slides[currentIndex];
 
@@ -75,17 +94,19 @@ const ParallaxCarousel: React.FC<ParallaxCarouselProps> = ({ slides, interval = 
             <div className="relative w-full md:w-1/2 h-full bg-black flex flex-col justify-center p-8 md:p-16 lg:p-24">
               {/* Background for mobile */}
               <div className="md:hidden absolute inset-0">
-                <WebPImage 
-                  src={currentSlide.image} 
-                  alt={currentSlide.title} 
+                <WebPImage
+                  src={currentSlide.image}
+                  alt={currentSlide.title}
                   className="w-full h-full object-cover"
+                  loading={currentIndex === 0 ? 'eager' : 'lazy'}
+                  fetchPriority={currentIndex === 0 ? 'high' : 'auto'}
                 />
                 <div className="absolute inset-0 bg-black opacity-60" />
               </div>
 
               {/* Text content */}
               <div className="relative z-10">
-                <motion.p 
+                <motion.p
                   key={`${currentSlide.id}-pretitle`}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -94,7 +115,7 @@ const ParallaxCarousel: React.FC<ParallaxCarouselProps> = ({ slides, interval = 
                 >
                   {currentSlide.preTitle}
                 </motion.p>
-                <motion.h2 
+                <motion.h2
                   key={`${currentSlide.id}-title`}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -130,10 +151,12 @@ const ParallaxCarousel: React.FC<ParallaxCarouselProps> = ({ slides, interval = 
             </div>
             {/* Right side with image */}
             <div className="hidden md:block md:w-1/2 h-full">
-              <WebPImage 
-                src={currentSlide.image} 
-                alt={currentSlide.title} 
+              <WebPImage
+                src={currentSlide.image}
+                alt={currentSlide.title}
                 className="w-full h-full object-cover"
+                loading={currentIndex === 0 ? 'eager' : 'lazy'}
+                fetchPriority={currentIndex === 0 ? 'high' : 'auto'}
               />
             </div>
           </div>
@@ -147,8 +170,8 @@ const ParallaxCarousel: React.FC<ParallaxCarouselProps> = ({ slides, interval = 
             <div
               key={index}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                index === currentIndex 
-                  ? 'bg-white scale-125' 
+                index === currentIndex
+                  ? 'bg-white scale-125'
                   : 'bg-white/30'
               }`}
             />
@@ -163,6 +186,9 @@ const ParallaxCarousel: React.FC<ParallaxCarouselProps> = ({ slides, interval = 
             if (!isTransitioning) {
               const prevIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
               setCurrentIndex(prevIndex);
+              // Preload the slide before the new current
+              const beforePrev = prevIndex === 0 ? slides.length - 1 : prevIndex - 1;
+              preloadSlide(beforePrev);
             }
           }}
           className="bg-black/50 hover:bg-black/70 text-white p-2 rounded-full backdrop-blur-sm transition-all duration-200 disabled:opacity-50"
@@ -193,4 +219,4 @@ const ParallaxCarousel: React.FC<ParallaxCarouselProps> = ({ slides, interval = 
   );
 };
 
-export default ParallaxCarousel; 
+export default ParallaxCarousel;

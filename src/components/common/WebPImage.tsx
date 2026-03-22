@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 interface WebPImageProps {
   src: string;
@@ -8,6 +8,9 @@ interface WebPImageProps {
   loading?: 'lazy' | 'eager';
   onLoad?: () => void;
   onError?: () => void;
+  fetchPriority?: 'high' | 'low' | 'auto';
+  sizes?: string;
+  decoding?: 'async' | 'sync' | 'auto';
 }
 
 const WebPImage: React.FC<WebPImageProps> = ({
@@ -18,77 +21,33 @@ const WebPImage: React.FC<WebPImageProps> = ({
   loading = 'lazy',
   onLoad,
   onError,
+  fetchPriority = 'auto',
+  sizes,
+  decoding = 'async',
 }) => {
-  const [imageSrc, setImageSrc] = useState<string>('');
-  const [hasError, setHasError] = useState(false);
-
-  useEffect(() => {
-    // Convert original src to WebP
-    const webpSrc = src.replace(/\.(jpg|jpeg|png|gif)$/i, '.webp');
-    
-    // Check WebP support
-    const checkWebPSupport = (): Promise<boolean> => {
-      return new Promise((resolve) => {
-        const webP = new Image();
-        webP.onload = webP.onerror = () => {
-          resolve(webP.height === 2);
-        };
-        webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
-      });
-    };
-
-    const loadImage = async () => {
-      try {
-        const supportsWebP = await checkWebPSupport();
-        
-        if (supportsWebP) {
-          // Try WebP first
-          const webpImg = new Image();
-          webpImg.onload = () => {
-            setImageSrc(webpSrc);
-            onLoad?.();
-          };
-          webpImg.onerror = () => {
-            // Fallback to original format
-            setImageSrc(src);
-            onLoad?.();
-          };
-          webpImg.src = webpSrc;
-        } else {
-          // Use original format for unsupported browsers
-          setImageSrc(src);
-          onLoad?.();
-        }
-      } catch (error) {
-        // Fallback to original format
-        setImageSrc(src);
-        onLoad?.();
-      }
-    };
-
-    loadImage();
-  }, [src, onLoad]);
-
-  const handleError = () => {
-    if (!hasError && imageSrc.endsWith('.webp')) {
-      // If WebP fails, try original format
-      setHasError(true);
-      setImageSrc(src);
-    } else {
-      onError?.();
-    }
-  };
+  // Determine the WebP source and fallback
+  const isAlreadyWebP = src.endsWith('.webp');
+  const webpSrc = isAlreadyWebP ? src : src.replace(/\.(jpg|jpeg|png|gif)$/i, '.webp');
+  const fallbackSrc = isAlreadyWebP
+    ? src.replace('.webp', '.png') // best-guess fallback
+    : src;
 
   return (
-    <img
-      src={imageSrc}
-      alt={alt}
-      className={className}
-      style={style}
-      loading={loading}
-      onLoad={onLoad}
-      onError={handleError}
-    />
+    <picture>
+      <source srcSet={webpSrc} type="image/webp" />
+      <img
+        src={fallbackSrc}
+        alt={alt}
+        className={className}
+        style={style}
+        loading={loading}
+        onLoad={onLoad}
+        onError={onError}
+        fetchPriority={fetchPriority}
+        sizes={sizes}
+        decoding={decoding}
+      />
+    </picture>
   );
 };
 
