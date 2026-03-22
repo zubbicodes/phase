@@ -135,7 +135,7 @@ const Events = () => {
                             alt={event.title}
                             className="w-full h-full object-cover"
                           />
-                          <div className="absolute top-4 left-4 bg-red-600 text-white px-4 py-2 rounded">
+                          <div className="absolute top-4 left-4 bg-blue-600 text-white px-4 py-2 rounded">
                             {event.type}
                           </div>
                         </div>
@@ -165,7 +165,7 @@ const Events = () => {
                           </div>
                           <button 
                             onClick={() => setExpandedEvent(expandedEvent === event.title ? null : event.title)}
-                            className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full inline-flex items-center"
+                            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full inline-flex items-center"
                           >
                             {expandedEvent === event.title ? 'Hide Gallery' : 'Show Gallery'}
                             <motion.svg 
@@ -237,9 +237,9 @@ const Events = () => {
                     <input
                       type="email"
                       placeholder="Enter your email"
-                      className="flex-1 px-4 py-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-red-500"
+                      className="flex-1 px-4 py-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:border-blue-500"
                     />
-                    <button className="px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
+                    <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
                       Subscribe
                     </button>
                   </div>
