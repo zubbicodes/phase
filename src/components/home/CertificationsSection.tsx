@@ -21,30 +21,30 @@ const certificates = [
     designation: 'Quality Management System',
     src: '/certificates/new2026/iso_9001.webp',
   },
-  {
-    quote: 'Dedicated to minimizing environmental impact and promoting sustainability',
-    name: 'ISO 14001',
-    designation: 'Environmental Management System',
-    src: '/certificates/new2026/iso_14001.webp',
-  },
-  {
-    quote: 'Ensuring the well-being and safety of every employee',
-    name: 'ISO 45001',
-    designation: 'Occupational Health & Safety',
-    src: '/certificates/new2026/iso_45001.webp',
-  },
+  // {
+  //   quote: 'Dedicated to minimizing environmental impact and promoting sustainability',
+  //   name: 'ISO 14001',
+  //   designation: 'Environmental Management System',
+  //   src: '/certificates/new2026/iso_14001.webp',
+  // },
+  // {
+  //   quote: 'Ensuring the well-being and safety of every employee',
+  //   name: 'ISO 45001',
+  //   designation: 'Occupational Health & Safety',
+  //   src: '/certificates/new2026/iso_45001.webp',
+  // },
   {
     quote: 'Verified commitment to recycled content and sustainable practices',
     name: 'GLOBAL RECYCLED STANDARD',
     designation: 'GRS Certification',
     src: '/certificates/new2026/grs_white_bg.webp',
   },
-  {
-    quote: 'Commitment to ethical trade and responsible supply chains',
-    name: 'SEDEX',
-    designation: 'Ethical Trade & Supply Chain',
-    src: '/Sedex_logo.webp',
-  },
+  // {
+  //   quote: 'Commitment to ethical trade and responsible supply chains',
+  //   name: 'SEDEX',
+  //   designation: 'Ethical Trade & Supply Chain',
+  //   src: '/Sedex_logo.webp',
+  // },
   {
     quote: 'Sustainability performance benchmarked against industry standards',
     name: 'HIGG INDEX',

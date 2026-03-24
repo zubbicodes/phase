@@ -60,34 +60,34 @@ const certifications: Certification[] = [
       'Process standardization',
     ],
   },
-  {
-    title: 'ISO 14001',
-    subtitle: 'Environmental Management System',
-    description: 'Certifies our environmental management system, demonstrating our dedication to minimizing environmental impact, reducing waste, and promoting sustainable resource use.',
-    image: '/certificates/new2026/iso_14001.webp',
-    color: '#22c55e',
-    category: 'sustainability',
-    benefits: [
-      'Environmental impact reduction',
-      'Waste minimization protocols',
-      'Sustainable resource management',
-      'Regulatory compliance',
-    ],
-  },
-  {
-    title: 'ISO 45001',
-    subtitle: 'Occupational Health & Safety',
-    description: 'Our workplace health and safety management system ensures the well-being of every employee, preventing work-related injuries and promoting a safe working environment.',
-    image: '/certificates/new2026/iso_45001.webp',
-    color: '#06b6d4',
-    category: 'safety',
-    benefits: [
-      'Worker safety assurance',
-      'Risk prevention protocols',
-      'Health monitoring systems',
-      'Safe working environment',
-    ],
-  },
+  // {
+  //   title: 'ISO 14001',
+  //   subtitle: 'Environmental Management System',
+  //   description: 'Certifies our environmental management system, demonstrating our dedication to minimizing environmental impact, reducing waste, and promoting sustainable resource use.',
+  //   image: '/certificates/new2026/iso_14001.webp',
+  //   color: '#22c55e',
+  //   category: 'sustainability',
+  //   benefits: [
+  //     'Environmental impact reduction',
+  //     'Waste minimization protocols',
+  //     'Sustainable resource management',
+  //     'Regulatory compliance',
+  //   ],
+  // },
+  // {
+  //   title: 'ISO 45001',
+  //   subtitle: 'Occupational Health & Safety',
+  //   description: 'Our workplace health and safety management system ensures the well-being of every employee, preventing work-related injuries and promoting a safe working environment.',
+  //   image: '/certificates/new2026/iso_45001.webp',
+  //   color: '#06b6d4',
+  //   category: 'safety',
+  //   benefits: [
+  //     'Worker safety assurance',
+  //     'Risk prevention protocols',
+  //     'Health monitoring systems',
+  //     'Safe working environment',
+  //   ],
+  // },
   {
     title: 'GLOBAL RECYCLED STANDARD',
     subtitle: 'GRS Certification',
@@ -102,20 +102,20 @@ const certifications: Certification[] = [
       'Circular economy contribution',
     ],
   },
-  {
-    title: 'SEDEX',
-    subtitle: 'Ethical Trade & Supply Chain',
-    description: 'Member of the Supplier Ethical Data Exchange, demonstrating our commitment to ethical business practices, labor standards, health & safety, and environmental responsibility.',
-    image: '/Sedex_logo.webp',
-    color: '#f59e0b',
-    category: 'ethical',
-    benefits: [
-      'Ethical labor practices',
-      'Transparent supply chain',
-      'Health & safety standards',
-      'Environmental responsibility',
-    ],
-  },
+  // {
+  //   title: 'SEDEX',
+  //   subtitle: 'Ethical Trade & Supply Chain',
+  //   description: 'Member of the Supplier Ethical Data Exchange, demonstrating our commitment to ethical business practices, labor standards, health & safety, and environmental responsibility.',
+  //   image: '/Sedex_logo.webp',
+  //   color: '#f59e0b',
+  //   category: 'ethical',
+  //   benefits: [
+  //     'Ethical labor practices',
+  //     'Transparent supply chain',
+  //     'Health & safety standards',
+  //     'Environmental responsibility',
+  //   ],
+  // },
   {
     title: 'HIGG INDEX',
     subtitle: 'Sustainability Performance',
@@ -246,7 +246,7 @@ const ParallaxHero = () => {
           className="mt-12 flex flex-wrap justify-center gap-8 md:gap-16"
         >
           {[
-            { number: '9+', label: 'Certifications' },
+            { number: '6+', label: 'Certifications' },
             { number: '100%', label: 'Compliance' },
             { number: '50+', label: 'Brands Served' },
           ].map((stat) => (
